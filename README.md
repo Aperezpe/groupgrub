@@ -24,6 +24,14 @@
 
 3. Bootstrap
 
+## Test the Models
+
+Run tests with: 
+```
+
+bundle exec rspec spec/modeling.rb
+```
+
    ​
 
 

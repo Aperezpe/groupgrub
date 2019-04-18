@@ -1,0 +1,45 @@
+<div class="container">
+  <br><br>
+  <h1>Friend Requests:
+  <%Request_count ="" %>
+  <%=Request_count += "#{Friends.all(user_id: current_user.id, are_friends: false).count}" %>
+  <%Request_count%>
+  </h1>
+</div>
+
+<!-- Searches your user's Friend databse to see if under are_friends = false
+    False means that it is temp (waiting for approval)
+    Display's invite from user with their Friend id, user name and user email
+-->
+
+<div class="container">
+  <% string =""%>
+  <% Friends.all(user_id: current_user.id).each do |u|%>
+
+
+    <!-- Function to take the user to the add_ans function-->
+    <form action= "/friends/add_ans" method= "POST">
+
+
+        <%s = User.get(u.following_user_id)%>
+        <%if u.are_friends == false%>
+        <% string =""%>
+
+          <%=string +="#{u.id} - #{s.name} - #{s.email} "%><br>
+
+
+          <!-- Checkbox for Accept and Deny and Submit button-->
+          <input type="radio" name="yes" value='<%= u.id %>'> Accept<br>
+          <input type="radio" name="no" value='<%= u.id %>'> Deny<br>
+          <input type="submit">
+        </form><br><br>
+
+
+      <%end%>
+<%end%>
+
+
+  <br><p> <%string%></p>
+
+</div>
+

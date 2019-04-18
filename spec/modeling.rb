@@ -13,6 +13,7 @@ describe Friends do
   it { should have_property           :id }
   it { should have_property           :user_id}
   it { should have_property           :following_user_id}
+  it { should have_property           :are_friends}
 end
 
 describe Requests do

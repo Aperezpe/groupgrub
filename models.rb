@@ -24,9 +24,7 @@ class User
         return self.password == password
     end
 
-    def as_json(*)
-      super.except( :password)
-    end
+
 end
 
 
@@ -35,6 +33,7 @@ class Friends
   property :id, Serial
   property :user_id, Integer
   property :following_user_id, Integer
+  property :are_friends, Boolean
 end
 
 class Requests

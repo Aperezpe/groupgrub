@@ -18,7 +18,7 @@ post "/process_login" do
 
 	if(user && user.login(password))
 		session[:user_id] = user.id
-		redirect "/"
+		redirect "/dashboard"
 	else
 		erb :"authentication/invalid_login"
 	end
@@ -35,17 +35,32 @@ end
 
 
 post "/register" do
+  name = params[:name]
 	email = params[:email]
 	password = params[:password]
+	phone = params[:phone]
 
-	u = User.new
-	u.email = email.downcase
-	u.password =  password
-	u.save
 
-	session[:user_id] = u.id
+  if name && email && password && phone
+		check = User.first(email: email.downcase)
 
-	erb :"authentication/successful_signup"
+		if check
+			halt 422, {"message": "Email already in use"}.to_json
+    else
+			u = User.new
+			u.name = name
+			u.email = email.downcase
+			u.password =  password
+			u.phone = phone
+			u.save
+
+			session[:user_id] = u.id
+
+			erb :"authentication/successful_signup"
+		end
+
+
+  end
 
 end
 
