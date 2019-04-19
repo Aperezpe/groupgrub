@@ -39,34 +39,51 @@ end
 # redirects to /requests to continue picking request answers
 post "/friends/add_ans" do
 	authenticate!
-	if params["yes"]
-		friendSide = Friends.get(params["yes"])
-		friendSide.are_friends = true
-		friendSide.save
 
-		num = params["yes"].to_i
-		num -= 1
-		currentUser = Friends.get(num)
-		currentUser.are_friends = true
-		currentUser.save
 
+	if params["answer"]
+
+		num = params["answer"].to_i
+
+    # Positive number means Accept from request
+    if num > 0
+      friendSide = Friends.get(params["answer"])
+      if friendSide
+        friendSide.are_friends = true
+        friendSide.save
+
+        num -= 1
+        currentUser = Friends.get(num)
+        currentUser.are_friends = true
+        currentUser.save
+      else
+				flash[:error] = "Request does not exist"
+      end
+
+      # Negative number means Deny from request
+    else
+
+      num = num * -1
+      friendSide = Friends.get(num)
+			if friendSide
+
+				friendSide.destroy!
+
+				num -= 1
+				currentUser = Friends.get(num)
+				currentUser.destroy!
+      else
+				flash[:error] = " Neg Request does not exist"
+
+      end
 
     end
 
-		if params["no"]
-			num = params["no"].to_i
-			num -= 1
+  else
+		flash[:error] = "Request does not exist"
 
-			friendSide = Friends.get(params["no"])
-			currentUser = Friends.get(num)
+  end
 
-
-			friendSide.destroy!
-			currentUser.destroy!
-
-
-
-    end
 	redirect "/requests"
 
 

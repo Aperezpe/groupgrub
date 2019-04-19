@@ -7,6 +7,8 @@
   </h1>
 </div>
 
+
+
 <!-- Searches your user's Friend databse to see if under are_friends = false
     False means that it is temp (waiting for approval)
     Display's invite from user with their Friend id, user name and user email
@@ -29,9 +31,16 @@
 
 
           <!-- Checkbox for Accept and Deny and Submit button-->
-          <input type="radio" name="yes" value='<%= u.id %>'> Accept<br>
-          <input type="radio" name="no" value='<%= u.id %>'> Deny<br>
-          <input type="submit">
+
+
+
+        <input type="radio"  name="answer" value='<%= u.id %>'> Accept</label><br>
+
+        <!-- Negative number means Deny-->
+        <% no = u.id * -1 %>
+        <input type="radio"  name="answer" value='<%= no %>'> Deny</label><br>
+
+        <input type="submit">
         </form><br><br>
 
 
