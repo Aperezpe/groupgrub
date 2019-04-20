@@ -98,11 +98,19 @@ end
 class Restaurant
     include DataMapper::Resource
     property :id, Serial
-    property :rest_name, Text
-    property :open_time, DateTime
-    property :close_time, DateTime
-    property :rest_phone, Text
-    property :rest_address, Text
+    property :rest_name, String
+    property :email, String
+    property :password, String
+    property :open_time, String
+    property :close_time, String
+    property :rest_phone, Integer
+    property :rest_address, String
+    property :created_at, DateTime
+
+    def login(password)
+      return self.password == password
+    end
+
 end
 
 class Dish

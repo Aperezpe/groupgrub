@@ -20,12 +20,95 @@ get "/" do
 	erb :index
 end
 
+# Restaurant Dashboard
+get "/res" do
+	res_authenticate!
+	erb :res_dashboard
+end
 
+
+# User Dashboard
 get "/dashboard" do
-	authenticate!
+
 	erb :dashboard
 end
 
+# User account info
+get "/account" do
+	authenticate!
+	erb :account
+end
+
+# Edit User account
+get "/account/edit" do
+	authenticate!
+  erb :account_edit
+end
+
+# Save changes to User account
+post "/account/update" do
+	authenticate!
+
+  user = User.first(id: current_user.id)
+
+  if user
+    user.name = params["name"] if params["name"]
+		user.email = params["email"] if params["email"]
+		user.phone = params["phone"] if params["phone"]
+
+		user.save
+		flash[:success] ="Account successfully updated!"
+		redirect "/account"
+
+  else
+    flash[:error] ="Not authorized"
+    redirect "/"
+  end
+end
+
+# Restaurant account info
+get "/res_account" do
+	res_authenticate!
+	erb :res_account
+end
+
+
+# Edit Restaurant account info
+get "/res_account/edit" do
+	res_authenticate!
+	erb :res_account_edit
+end
+
+# Save changes to Restaurant account info
+post "/res_account/update" do
+	res_authenticate!
+
+	res = Restaurant.first(id: current_res_user.id)
+
+  if res
+
+		res.email = params["email"] if params["email"]
+		res.password = params["password"] if params["password"]
+		res.open_time = params["open"] if params["open"]
+		res.close_time = params["close"] if params["close"]
+    res.rest_phone = params["phone"] if params["phone"]
+		res.rest_address = params["address"] if params["address"]
+
+
+		res.save
+
+		flash[:success] = "Account successfully updated!"
+		redirect "/res_account"
+
+	else
+		flash[:error] ="Not authorized"
+		redirect "/"
+
+  end
+end
+
+
+# All Users' friends
 get "/friends" do
 	authenticate!
 	erb :friends
@@ -85,8 +168,6 @@ post "/friends/add_ans" do
   end
 
 	redirect "/requests"
-
-
 end
 
 
@@ -141,7 +222,6 @@ post "/friends/add" do
 
 		end
   end
-
 end
 
 
@@ -149,7 +229,6 @@ end
 # Will then delete Friend from user's and Friend's side
 post "/friends/remove" do
 	authenticate!
-
 
   if params["email"]
 		if params["email"] != current_user.email
@@ -169,12 +248,11 @@ post "/friends/remove" do
 		else
 			not_found
 		end
-
   end
-
-
 end
 
+
+# All requests
 get "/requests" do
 	authenticate!
 	erb :requests

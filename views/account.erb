@@ -1,0 +1,15 @@
+<br><br>
+<div class="container">
+  <h1>Account info for <%=current_user.name %> </h1><br>
+
+
+  <p> Name: <%=current_user.name%></p>
+  <p> Email: <%=current_user.email%></p>
+  <p> Phone: <%=current_user.phone%></p>
+  <p> Password: <%=current_user.password%></p>
+
+  <form method="Get" action="/account/edit">
+    <button type="submit">Edit Account</button>
+  </form>
+</div><br>
+

@@ -1,0 +1,19 @@
+<br><br>
+<div class="container">
+  <h1>Account info for <%=current_res_user.rest_name %> </h1><br>
+
+
+  <p> Email: <%=current_res_user.email%></p>
+  <p> Address: <%=current_res_user.rest_address%></p>
+  <p> Phone: <%=current_res_user.rest_phone%></p>
+  <p> Open at: <%=current_res_user.open_time%></p>
+  <p> Close at: <%=current_res_user.close_time%></p>
+  <p> Password: <%=current_res_user.password%></p>
+
+  <form method="Get" action="/res_account/edit">
+    <button type="submit">Edit Account</button>
+  </form>
+</div>
+
+
+

@@ -71,13 +71,14 @@ end
 
 
 describe Restaurant do
-  it { should have_property           :id }
-  it { should have_property           :rest_name }
+  it { should have_property           :id}
+  it { should have_property           :rest_name}
+  it { should have_property           :email}
+  it { should have_property           :password}
   it { should have_property           :open_time}
   it { should have_property           :close_time}
   it { should have_property           :rest_phone}
   it { should have_property           :rest_address}
-
 end
 
 describe Dish do

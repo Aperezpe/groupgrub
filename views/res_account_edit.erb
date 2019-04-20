@@ -1,0 +1,14 @@
+<br><br>
+<div class="container">
+  <form method="Post" action="/res_account/update">
+    <h1>Edit Account info for <%=current_res_user.rest_name %> </h1><br>
+
+    <p>Email: <input type="text" name="email"  value=<%=current_res_user.email%>></p>
+    <p>Address: <input type="text" name="address"  value=<%=current_res_user.rest_address%>></p>
+    <p>Phone: <input type="integer" name="phone" value=<%=current_res_user.rest_phone%>></p>
+    <p>Open at: <input type="text" name="open" value=<%=current_res_user.open_time%>></p>
+    <p>Close at: <input type="text" name="close" value=<%=current_res_user.close_time%>></p>
+    <p>Password: <input type="password" name="password"  value=<%=current_res_user.password%>></p>
+    <button type="submit">Submit Changes</button>
+  </form>
+</div>
