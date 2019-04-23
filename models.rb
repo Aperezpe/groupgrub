@@ -53,8 +53,9 @@ class Group
   include DataMapper::Resource
   property :id, Serial
   property :event_id, Integer
-  property :user_id, Integer
+  property :user_id, Integer #Host
   property :friend_id, Integer
+  property :is_attending, Boolean
 end
 
 class Event
@@ -63,7 +64,9 @@ class Event
     property :created_at, DateTime
     property :user_id, Integer
     property :restaurant_id, Integer
-    property :event_time, DateTime
+    property :title, Text
+    property :are_events, Boolean
+    property :event_date, DateTime
 
 end
 

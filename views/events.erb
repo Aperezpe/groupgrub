@@ -1,0 +1,63 @@
+<div class="container">
+
+    <% if @my_dinners.count != 0 %>
+
+        <h1>My Dinners</h1>
+        <% @my_dinners.each do |d|%>
+        <a href="events/<%=d.id%>" > <%=d.id%> - <%=d.title%> - <%=d.event_date%></a></br>
+
+        <%end%>
+    <% end %>
+    <% if @dinners.count != 0 %>
+        <h3>Dinners I'm attending to</h3>
+        <%if @dinners%>
+            <% @dinners.each do |d|%>
+                <%d_tmp = Event.first(id: d.event_id)%>
+
+                <a href="events/<%=d_tmp.id%>" > <%=d_tmp.id%> - <%=d_tmp.title%> - <%=d_tmp.event_date%></a> </br>
+            <%end%>
+        <%end%>
+    <%end%>
+    
+
+    <h1>New Dinner</h1>
+    <form action="/events/new" method="POST">
+        Title: <input type="text" name="title" required/><br/>
+        Date: <input type="date" name="d_date" required/><br/>
+        <input type="submit" class="btn btn-primary"/>
+    </form>
+
+    <h1>Delete Dinner</h1>
+    <form action="/events/delete" method="POST">
+        Event ID: <input type="text" name="id" required/><br/>
+        <input type="submit" class="btn btn-primary" text="delete"/>
+    </form>
+
+    <h1>Event Requests:
+  <%Request_count ="" %>
+  <%=Request_count += "#{Requests.all(requested_user_id: current_user.id).count}" %>
+  <%Request_count%>
+  </h1>
+
+  <div class="container">
+    <% @req.each do |r| %>
+
+      <form action="/events/<%=r.event_id%>/response" method="POST" id="events">
+
+        <%e = Event.first(id: r.event_id)%>
+        <p><%=e.id%> - <%=e.title%> - <%=e.event_date%></p>
+        <div>
+        <label for="radio-choice-1">Going</label>
+        <input type="radio" name="radio-choice" id="radio-choice-1" value="yes" /><br>
+
+        <label for="radio-choice-2">Not Going</label>
+        <input type="radio" name="radio-choice" id="radio-choice-2" value="no" /><br>
+        <input type="submit" value="Submit">
+
+        </div>
+
+      </form><br><br>
+    <%end%>
+  </div>
+
+</div>

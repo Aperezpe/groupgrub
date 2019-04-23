@@ -1,0 +1,50 @@
+<div class="container">
+
+    <h1><%=@dinner.id%> - <%=@dinner.title%></h1>
+    <h3><%=@dinner.event_date%></h3>
+    <br>
+
+    <h2>Group</h2>
+    <div class="container">
+        <ul>
+            <%Group.all(event_id: @dinner.id).each do |g|%>
+                <%if g.friend_id!=-1%>
+                    <%u = User.first(id: g.friend_id)%>
+                    <li> ID: <%=u.id%>, Name: <%=u.name%>, Email: <%=u.email%> </li>
+                <%end%>
+            <%end%>
+        </ul>
+        <% if current_user.id == @dinner.user_id %>
+            <form action= "/events/<%=@dinner.id%>/deleteFriend" method="POST">
+                <label for="friendID">Delete a friend from Group:</label>
+                <input type="text" name="friendID" placeholder="ID" required>
+                <input type= "submit" value="Submit"/>
+            </form>
+        <%end%>
+        
+        
+    </div>
+
+    <br>
+    <h2>Invite Friends</h2>
+
+    <div class="container">
+
+    <% if current_user.id == @dinner.user_id %>
+        <form action= "/events/<%=@dinner.id%>/newFriend" method= "POST">
+            <br>
+            <label for="email">Invite a new friend:</label>
+            <input type="email" name="email"
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="E-mail" required>
+
+            <input type= "submit" value="Submit"/>
+        </form>
+    <%end%>
+
+    <%if @email%>
+        <p><%=@user.email%> has been invited!</p>
+    <%end%>
+    </div>
+
+
+</div>
