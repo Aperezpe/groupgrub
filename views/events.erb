@@ -17,7 +17,14 @@
         <br><br>
         <h1>My Dinners</h1>
         <% @my_dinners.each do |d|%>
-        <a href="events/<%=d.id%>" > <%=d.id%> - <%=d.title%> - <%=d.event_date.strftime("%B %d, %Y")%></a></br>
+        <%rest_name = "undecided" %>
+      <% if d.restaurant_id %>
+        <% r = Restaurant.first(id: d.restaurant_id) %>
+        <% if r %>
+        <% rest_name = r.rest_name %>
+        <%end %>
+        <%end %>
+        <a href="events/<%=d.id%>" > <%=d.id%> - <%=d.title%> - <%=d.event_date.strftime("%B %d, %Y")%> - Restaurant: <%=rest_name %></a></br>
 
         <%end%>
     <% end %>
@@ -27,8 +34,19 @@
         <%if @dinners%>
             <% @dinners.each do |d|%>
                 <%d_tmp = Event.first(id: d.event_id)%>
+                <%rest_name = "undecided" %>
+                <% if d.event_id %>
+                  <% r = Event.first(id: d.event_id)%>
+                  <% if r.restaurant_id %>
+                    <% name = Restaurant.first(id: r.restaurant_id)%>
+                    <%if name %>
+                      <%rest_name = name.rest_name%>
+                    <%end %>
+                  <%end %>
+                <%end %>
 
-                <a href="events/<%=d_tmp.id%>" > <%=d_tmp.id%> - <%=d_tmp.title%> - <%=d_tmp.event_date.strftime("%B %d, %Y")%></a> </br>
+
+        <a href="events/<%=d_tmp.id%>" > <%=d_tmp.id%> - <%=d_tmp.title%> - <%=d_tmp.event_date.strftime("%B %d, %Y")%> - Restaurant: <%=rest_name %></a> </br>
             <%end%>
         <%end%>
     <%end%>

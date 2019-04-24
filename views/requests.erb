@@ -66,7 +66,11 @@
 
     <%e = Event.first(id: r.event_id)%>
     <%u = User.first(id: r.user_id) %>
-    <p><%=e.id%> - <%=e.title%> - Created by: <%=u.name%>  - <%=e.event_date.strftime("%B %d, %Y")%></p>
+    <%rest_name = "Restaurant: undecided" %>
+    <%if e.restaurant_id%>
+        <% rest_name = Restaurant.first(id: e.restaurant_id).rest_name %>
+      <%end%>
+    <p><%=e.id%> - <%=e.title%> - Created by: <%=u.name%> -  Restaurant: <%=rest_name %> - <%=e.event_date.strftime("%B %d, %Y")%></p>
     <div>
       <form action= "/events/<%=r.event_id%>/response" method= "POST">
 

@@ -10,11 +10,15 @@
 
     <h1><%=@dinner.id%> - <%=@dinner.title%></h1>
     <h3><%=@dinner.event_date.strftime("%B %d, %Y")%></h3>
-  <% if @dinner.restaurant_id >0 %>
-    <% res_id= Event.first(id: @dinner.id).restaurant_id%>
-    <% res_name= Restaurant.first(id: res_id).rest_name %>
-    <h3><%= res_name%></h3>
+  <%rest_name = "undecided" %>
+  <% if @dinner.restaurant_id %>
+    <% name = Restaurant.first(id: @dinner.restaurant_id)%>
+    <%if name%>
+    <% rest_name = name.rest_name %>
+    <%end%>
+    <h3>Restaurant: <%=rest_name %></h3>
   <%end %>
+
 
 
 
@@ -102,10 +106,10 @@
 
 
     <% if current_user.id == @dinner.user_id %>
-      <% if @dinner.restaurant_id ==0 %>
-      <form action= "/FILL IN" method="POST">
-        <br><label for="friendID">Select a restaurant for <%=@dinner.title%>:</label>
-        <input type="text" name="friendID" placeholder="Name" required>
+      <% if @dinner.restaurant_id ==0%>
+      <form action= "/events/<%=@dinner.id%>/addRes" method="POST">
+        <br><label for="rest_name">Select a restaurant for <%=@dinner.title%>:</label>
+        <input type="text" name="rest_name" placeholder="Name" required>
         <input type= "submit" value="Submit" class="btn btn-primary"/>
       </form><br>
         <%else%>

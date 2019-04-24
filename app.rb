@@ -182,11 +182,11 @@ post "/friends/add" do
   if params["email"]
 
 		u = User.first(email: params["email"])
-		f = Friends.first(user_id: current_user.id, following_user_id: u.id)
+
 
 		# You can not be friends with yourself
 		if u
-
+			f = Friends.first(user_id: current_user.id, following_user_id: u.id)
 			if u.id == current_user.id
 				flash[:error] = "You can not be friends with yourself :("
 				redirect "/friends"
@@ -219,7 +219,8 @@ post "/friends/add" do
 			end
     else
       # Friend not in the User database
-			return not_found
+			flash[:error] ="#{params["email"]} not found"
+      redirect "/friends"
 
 		end
   end
@@ -234,21 +235,25 @@ post "/friends/remove" do
   if params["email"]
 		if params["email"] != current_user.email
 			u = User.first(email: params["email"])
+      if u
 
-			removeFriend = Friends.first(user_id: current_user.id, following_user_id: u.id, are_friends: true)
-			removeFreind_CurrentUser = Friends.first(user_id: u.id, following_user_id: current_user.id, are_friends: true)
+				removeFriend = Friends.first(user_id: current_user.id, following_user_id: u.id, are_friends: true)
+				removeFreind_CurrentUser = Friends.first(user_id: u.id, following_user_id: current_user.id, are_friends: true)
 
-			if removeFriend and removeFreind_CurrentUser
-				removeFriend.destroy!
-				removeFreind_CurrentUser.destroy!
-        flash[:success] = "Friendship with #{u.email} has been deleted"
-				redirect "/friends"
+				if removeFriend and removeFreind_CurrentUser
+					removeFriend.destroy!
+					removeFreind_CurrentUser.destroy!
+        	flash[:success] = "Friendship with #{u.email} has been deleted"
+					redirect "/friends"
+				else
+					flash[:error] = "#{params["email"]} was not found in your friends' list"
+					redirect "/friends"
+				end
 			else
-				return not_found
+			flash[:error] = "#{params["email"]} was not found in your friends' list"
+			redirect "/friends"
 			end
-		else
-			not_found
-		end
+    end
   end
 end
 
@@ -476,5 +481,29 @@ post "/events/:id/cancel" do
     flash[:success] = "#{name_event.title} was canceled"
     redirect "/events"
   end
+
+end
+
+
+post "/events/:id/addRes"do
+
+  if params[:id] and params[:rest_name]
+  rest_id = Restaurant.first(rest_name: params[:rest_name])
+    if rest_id
+      event = Event.first(id: params[:id])
+      if event and event.user_id == current_user.id
+        event.restaurant_id = rest_id.id
+        event.save
+        flash[:success] = "#{params[:rest_name]} added to #{event.title}"
+				redirect "/events/#{event.id}"
+
+      end
+
+  else
+    flash[:error] = "#{params[:rest_name]} not found"
+    redirect "/events/#{params[:id]}"
+
+    end
+	end
 
 end
