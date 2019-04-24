@@ -478,7 +478,7 @@ post "/events/:id/cancel" do
 
   if event and name_event
     event.destroy
-    flash[:success] = "#{name_event.title} was canceled"
+    flash[:success] = "You left #{name_event.title} invite"
     redirect "/events"
   end
 
