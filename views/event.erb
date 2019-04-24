@@ -1,10 +1,32 @@
+
+
+<!--
+//
+//
+//
+    Event Info -->
 <div class="container">
   <br><br>
 
     <h1><%=@dinner.id%> - <%=@dinner.title%></h1>
     <h3><%=@dinner.event_date.strftime("%B %d, %Y")%></h3>
+  <% if @dinner.restaurant_id >0 %>
+    <% res_id= Event.first(id: @dinner.id).restaurant_id%>
+    <% res_name= Restaurant.first(id: res_id).rest_name %>
+    <h3><%= res_name%></h3>
+  <%end %>
 
 
+
+
+
+
+
+  <!--
+//
+//
+//
+    Cancel Event -->
   <% if current_user.id == @dinner.user_id %>
   <form action="/events/delete" method="POST">
     <input type="hidden" name="id" value ="<%=@dinner.id%>"/>
@@ -12,8 +34,16 @@
   </form>
   <br>
     <%end%>
+</div>
 
 
+
+
+  <!--
+//
+//
+//
+    Invite Friend -->
     <div class="container">
 
     <% if current_user.id == @dinner.user_id %>
@@ -39,6 +69,13 @@
 
 
 
+
+
+  <!--
+//
+//
+//
+    Remove Friend -->
   <div class="container">
 
     <% if current_user.id == @dinner.user_id %>
@@ -48,52 +85,114 @@
         <input type= "submit" value="Submit" class="btn btn-primary"/>
       </form>
     <%end%>
-  </div><br>
-</div>
+  </div>
 
+
+
+
+
+<!--
+//
+//
+//
+
+#### NEEDS TO COMPLETE###
+    Add restaurant  -->
+  <div class="container">
+
+
+    <% if current_user.id == @dinner.user_id %>
+      <% if @dinner.restaurant_id ==0 %>
+      <form action= "/FILL IN" method="POST">
+        <br><label for="friendID">Select a restaurant for <%=@dinner.title%>:</label>
+        <input type="text" name="friendID" placeholder="Name" required>
+        <input type= "submit" value="Submit" class="btn btn-primary"/>
+      </form><br>
+        <%else%>
+        <br>
+    <%end%>
+    <%end%>
+  </div>
+
+
+
+
+
+
+
+<!--
+//
+//
+//
+    Friends that are attending -->
 <div class="container">
-  <h1>Friends that are attending:</h1><br>
+  <div class="row">
+    <div class="col-md-4">
+      <% if current_user.id != @dinner.user_id %>
+        <br>
+        <%end %>
+  <h2>Attending</h2><br>
   <%u= User.first(id: @dinner.user_id) %>
 
-
-  <ul>
-    <li>ID:<%=u.id %>, Name: <%=u.name %>, Email: <%=u.email %></li>
+    <p>ID:<%=u.id %>, Name: <%=u.name %>, Email: <%=u.email %></p>
     <%Group.all(event_id: @dinner.id).each do |g|%>
       <%if g.friend_id!=-1%>
         <%u = User.first(id: g.friend_id)%>
-        <li> ID: <%=u.id%>, Name: <%=u.name%>, Email: <%=u.email%> </li>
+        <p> ID: <%=u.id%>, Name: <%=u.name%>, Email: <%=u.email%> </p>
       <%end%>
     <%end%>
 
-
-
-  </ul>
-</div>
+  </div>
 
 
 
 
 
-
-  <div class="container">
+    <!--
+//
+//
+//
+    Friends to choose from -->
+    <div class="col-md-4">
     <% if current_user.id == @dinner.user_id %>
-    <h1>Friends to choose from</h1><br>
+    <h2>Choose Friends</h2><br>
 
     <% Friends.all(user_id: current_user.id, are_friends: true).each do |u|%>
       <% string =""%>
 
 
-
         <%s = User.get(u.following_user_id)%>
         <%string +="ID: #{u.id}, Name: #{s.name}, Email: #{s.email}"%>
-        <ul><li><%=string%></li></ul>
+        <p><%=string%></p>
 
       <%end%>
     <%end%>
 
+  </div>
 
 
-  </div><br><br>
+
+
+
+    <!--
+//
+//
+//
+    Restaurant to choose from -->
+    <div class="col-md-4">
+      <% if current_user.id == @dinner.user_id %>
+        <h2> Pick Restaurant</h2><br>
+
+        <% Restaurant.all.each do |r| %>
+        <%string="ID: #{r.id}, Name: #{r.rest_name}" %>
+          <p><%=string%></p>
+
+        <%end %>
+        <%end%>
+
+
+    </div>
+</div><br><br>
 
 
 

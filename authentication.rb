@@ -60,7 +60,7 @@ post "/register" do
 	if name && email && password && phone && checkbox
     if checkbox == "individual"
 
-			check = User.first(email: email.downcase)
+			check = User.first(name: name.downcase, email: email.downcase)
 
 			if check
 				halt 422, {"message": "Email already in use"}.to_json
