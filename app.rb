@@ -356,7 +356,7 @@ post "/events/:id/response" do
 			if g.save
 				flash[:success] = "Welcome to #{e.title}"
 				req.destroy
-				redirect "/events/#{params[:id]}"
+				redirect "/requests"
 			else
 				flash[:error] = "There was an error"
 				redirect "/dashboard"
@@ -454,10 +454,27 @@ end
 # delete request
 
 post "/requests/:id/delete" do
+	authenticate!
 	req = Requests.first(id: params[:id])
 
 	if req.destroy
 		return "The request has been deleted"
 	end
+
+end
+
+# Cancel request
+
+post "/events/:id/cancel" do
+	authenticate!
+
+  event = Group.first(event_id: params[:id], friend_id: current_user.id)
+  name_event = Event.first(id: params[:id])
+
+  if event and name_event
+    event.destroy
+    flash[:success] = "#{name_event.title} was canceled"
+    redirect "/events"
+  end
 
 end

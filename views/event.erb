@@ -2,8 +2,17 @@
   <br><br>
 
     <h1><%=@dinner.id%> - <%=@dinner.title%></h1>
-    <h3><%=@dinner.event_date%></h3>
-    <br>
+    <h3><%=@dinner.event_date.strftime("%B %d, %Y")%></h3>
+
+
+  <% if current_user.id == @dinner.user_id %>
+  <form action="/events/delete" method="POST">
+    <input type="hidden" name="id" value ="<%=@dinner.id%>"/>
+    <br><input type="submit" value="Delete Event" class="btn btn-primary"/>
+  </form>
+  <br>
+    <%end%>
+
 
     <div class="container">
 
@@ -14,8 +23,13 @@
             <input type="email" name="email"
                 pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="E-mail" required>
 
-            <input type= "submit" value="Submit"/>
+            <input type= "submit" value="Submit" class="btn btn-primary"/>
         </form>
+        <%else %>
+        <form action= "/events/<%=@dinner.id%>/cancel" method= "POST">
+        <input type= "submit" value="Cancel Invite" class="btn btn-primary"/>
+        </form>
+
     <%end%>
 
     <%if @email%>
@@ -29,9 +43,9 @@
 
     <% if current_user.id == @dinner.user_id %>
       <form action= "/events/<%=@dinner.id%>/deleteFriend" method="POST">
-        <label for="friendID">Delete a friend from <%=@dinner.title%>:</label>
+       <br><label for="friendID">Delete a friend from <%=@dinner.title%>:</label>
         <input type="text" name="friendID" placeholder="ID" required>
-        <input type= "submit" value="Submit"/>
+        <input type= "submit" value="Submit" class="btn btn-primary"/>
       </form>
     <%end%>
   </div><br>
@@ -71,15 +85,15 @@
 
 
         <%s = User.get(u.following_user_id)%>
-        <%string +="#{u.id} - #{s.name} - #{s.email}"%>
-        <p><%=string%></p>
+        <%string +="ID: #{u.id}, Name: #{s.name}, Email: #{s.email}"%>
+        <ul><li><%=string%></li></ul>
 
       <%end%>
     <%end%>
 
 
 
-  </div>
+  </div><br><br>
 
 
 

@@ -2,10 +2,10 @@
 
 <div class="container">
   <form action= "/friends/add" method= "POST">
-    <br>
+    <br><br>
     Add new friend:       <input type= "text" name= "email" placeholder="Email"/>
 
-    <input type= "submit" value="Submit"/>
+    <input type= "submit" value="Submit" class="btn btn-primary"/>
   </form>
 </div>
 
@@ -16,32 +16,11 @@
     <br>
     Remove friend:       <input type= "text" name= "email" placeholder="Email"/>
 
-    <input type= "submit" value="Submit"/>
+    <input type= "submit" value="Submit" class="btn btn-primary"/>
   </form>
 </div>
 <br>
 <br>
-<br>
-
-
-
-<style>
-  body{
-    margin-top:20px;
-    background:#FAFAFA;
-  }
-
-  img.profile-photo-lg{
-    height: 80px;
-    width: 80px;
-    border-radius: 50%;
-  }
-</style>
-
-
-
-
-
 
 
 <!-- Function to display all users in the database
@@ -52,14 +31,14 @@
   <%Request_count ="" %>
   <%=Request_count += "#{User.all.count}" %>
   <%Request_count%> Users
-  </h1><br>
+  </h1>
 
 
   <% User.all.each do |u|%>
     <% string =""%>
 
-    <% string += "#{u.id} - #{u.name} - #{u.email}"%>
-    <p><%=string%></p>
+    <% string += "ID: #{u.id}, Name: #{u.name}, Email: #{u.email}"%>
+    <ul><li><%=string%></li></ul>
 
   <%end %>
 
@@ -76,7 +55,7 @@
     <%Request_count ="" %>
     <%=Request_count += "#{Friends.all(user_id: current_user.id, are_friends: true).count}" %>
     <%Request_count%> friends
-  </h1><br>
+  </h1>
 
 
   <% Friends.all(user_id: current_user.id).each do |u|%>
@@ -85,11 +64,11 @@
     <%if u.are_friends == true%>
 
       <%s = User.get(u.following_user_id)%>
-      <%string +="#{u.id} - #{s.name} - #{s.email}"%>
-      <p><%=string%></p>
+      <%string +="ID: #{u.id}, Name: #{s.name}, Email: #{s.email}"%>
+      <ul><li><%=string%></li></ul>
 
     <%end%>
-  <%end%>
+  <%end%><br>
 
 </div>
 

@@ -1,37 +1,40 @@
 <div class="container">
+  <br><br>
+  <h1>Create New Dinner</h1>
+  <form action="/events/new" method="POST">
+    Title: <input type="text" name="title" required/><br/>
+    Date: <input type="date" name="d_date" required/><br>
+    <br><input type="submit" class="btn btn-primary"/>
+  </form><br><br>
+
+  <h1>Delete Dinner</h1>
+  <form action="/events/delete" method="POST">
+    Event ID: <input type="text" name="id" required/><br/>
+    <br><input type="submit" class="btn btn-primary" text="delete"/>
+  </form>
 
     <% if @my_dinners.count != 0 %>
-
+        <br><br>
         <h1>My Dinners</h1>
         <% @my_dinners.each do |d|%>
-        <a href="events/<%=d.id%>" > <%=d.id%> - <%=d.title%> - <%=d.event_date%></a></br>
+        <a href="events/<%=d.id%>" > <%=d.id%> - <%=d.title%> - <%=d.event_date.strftime("%B %d, %Y")%></a></br>
 
         <%end%>
     <% end %>
     <% if @dinners.count != 0 %>
+        <br><br>
         <h3>Dinners I'm attending to</h3>
         <%if @dinners%>
             <% @dinners.each do |d|%>
                 <%d_tmp = Event.first(id: d.event_id)%>
 
-                <a href="events/<%=d_tmp.id%>" > <%=d_tmp.id%> - <%=d_tmp.title%> - <%=d_tmp.event_date%></a> </br>
+                <a href="events/<%=d_tmp.id%>" > <%=d_tmp.id%> - <%=d_tmp.title%> - <%=d_tmp.event_date.strftime("%B %d, %Y")%></a> </br>
             <%end%>
         <%end%>
     <%end%>
     
     <br><br>
-    <h1>Create New Dinner</h1>
-    <form action="/events/new" method="POST">
-        Title: <input type="text" name="title" required/><br/>
-        Date: <input type="date" name="d_date" required/><br/>
-        <input type="submit" class="btn btn-primary"/>
-    </form><br><br>
 
-    <h1>Delete Dinner</h1>
-    <form action="/events/delete" method="POST">
-        Event ID: <input type="text" name="id" required/><br/>
-        <input type="submit" class="btn btn-primary" text="delete"/>
-    </form>
 
 
 

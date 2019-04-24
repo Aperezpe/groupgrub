@@ -37,7 +37,7 @@
         <% no = u.id * -1 %>
         <input type="radio"  name="answer" value='<%= no %>'> Deny</label><br>
 
-        <input type="submit">
+        <input type="submit" value="Submit" class="btn btn-primary">
         </form><br><br>
 
       <%end%>
@@ -66,13 +66,15 @@
 
     <%e = Event.first(id: r.event_id)%>
     <%u = User.first(id: r.user_id) %>
-    <p><%=e.id%> - <%=e.title%> - Created by: <%=u.name%>  - <%=e.event_date%></p>
+    <p><%=e.id%> - <%=e.title%> - Created by: <%=u.name%>  - <%=e.event_date.strftime("%B %d, %Y")%></p>
     <div>
+      <form action= "/events/<%=r.event_id%>/response" method= "POST">
 
-      <input type="radio" name="radio-choice"  value="yes" />Going <br>
+      <input type="radio" name="radio-choice"  value="yes" /> Going <br>
 
       <input type="radio" name="radio-choice"  value="no" /> Not Going<br>
-      <input type="submit" value="Submit" formaction="/events/<%=r.event_id%>/response" formmethod="POST">
+      <input type="submit" value="Submit" class="btn btn-primary" formaction="/events/<%=r.event_id%>/response" formmethod="POST">
+      </form>
 
     </div>
 
