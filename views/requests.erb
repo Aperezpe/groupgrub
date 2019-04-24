@@ -16,19 +16,16 @@
 
 <div class="container">
   <% string =""%>
+
   <% Friends.all(user_id: current_user.id).each do |u|%>
-
-
     <!-- Function to take the user to the add_ans function-->
     <form action= "/friends/add_ans" method= "POST">
-
 
         <%s = User.get(u.following_user_id)%>
         <%if u.are_friends == false%>
         <% string =""%>
-
+        
           <%=string +="#{u.id} - #{s.name} - #{s.email} "%><br>
-
 
           <!-- Checkbox for Accept and Deny and Submit button-->
 
@@ -43,12 +40,48 @@
         <input type="submit">
         </form><br><br>
 
-
       <%end%>
 <%end%>
 
 
   <br><p> <%string%></p>
+
+  <br><br>
+
+  
+</div>
+
+
+<div class="container">
+
+  <h1>Event Requests:
+    <%Request_count ="" %>
+    <%=Request_count += "#{Requests.all(requested_user_id: current_user.id).count}" %>
+    <%Request_count%>
+  </h1></div>
+
+<div class="container">
+  <% Requests.all(requested_user_id: current_user.id).each do |r| %>
+
+
+    <%e = Event.first(id: r.event_id)%>
+    <%u = User.first(id: r.user_id) %>
+    <p><%=e.id%> - <%=e.title%> - Created by: <%=u.name%>  - <%=e.event_date%></p>
+    <div>
+
+      <input type="radio" name="radio-choice"  value="yes" />Going <br>
+
+      <input type="radio" name="radio-choice"  value="no" /> Not Going<br>
+      <input type="submit" value="Submit" formaction="/events/<%=r.event_id%>/response" formmethod="POST">
+
+    </div>
+
+  <br><br>
+<%end%>
+
+
+
+
 
 </div>
 

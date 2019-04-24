@@ -41,6 +41,7 @@ describe Event do
   it { should have_property           :created_at}
   it { should have_property           :restaurant_id}
   it { should have_property           :event_time}
+  it { should have_property           :title}
 
 end
 

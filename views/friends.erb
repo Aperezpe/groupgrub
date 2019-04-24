@@ -79,19 +79,17 @@
   </h1><br>
 
 
-  <% Friends.all.each do |u|%>
+  <% Friends.all(user_id: current_user.id).each do |u|%>
     <% string =""%>
 
-  <%if u.user_id == session[:user_id]%>
-      <%if u.are_friends == true%>
+    <%if u.are_friends == true%>
 
-          <%s = User.get(u.following_user_id)%>
-          <%string +="#{u.id} - #{s.name} - #{s.email}"%>
-          <p><%=string%></p>
+      <%s = User.get(u.following_user_id)%>
+      <%string +="#{u.id} - #{s.name} - #{s.email}"%>
+      <p><%=string%></p>
 
-        <%end%>
-      <%end%>
     <%end%>
+  <%end%>
 
 </div>
 
