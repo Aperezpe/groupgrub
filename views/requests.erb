@@ -66,7 +66,7 @@
 
     <%e = Event.first(id: r.event_id)%>
     <%u = User.first(id: r.user_id) %>
-    <%rest_name = "Restaurant: undecided" %>
+    <%rest_name = "undecided" %>
     <%if e.restaurant_id%>
         <% name = Restaurant.first(id: e.restaurant_id)%>
         <%if name %>
