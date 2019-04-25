@@ -150,7 +150,7 @@
 
 
 </div>
-    <% if rest_name == "undecided" and Poll.all(event_id: @dinner.id).count >0 and @dinner.user_id == current_user.id %>
+    <% if rest_name == "undecided" and Poll.all(event_id: @dinner.id).count > 0 and @dinner.user_id == current_user.id %>
     <div class="col-md-4">
       <% if Poll.first(event_id: @dinner.id, start: false)%>
       <h5>Current candidates</h5>
