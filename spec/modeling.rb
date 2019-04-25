@@ -59,7 +59,7 @@ describe Poll do
   it { should have_property           :id }
   it { should have_property           :user_id }
   it { should have_property           :created_at}
-  it { should have_property           :restaurant_id}
+  it { should have_property           :rest_id}
   it { should have_property           :event_id}
 end
 
@@ -68,6 +68,7 @@ describe Vote do
   it { should have_property           :user_id }
   it { should have_property           :poll_id}
   it { should have_property           :created_at}
+  it { should have_property           :vote}
 end
 
 

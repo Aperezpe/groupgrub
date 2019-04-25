@@ -49,12 +49,15 @@
 //
 //
     Invite Friend -->
-    <div class="container">
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+
 
     <% if current_user.id == @dinner.user_id %>
         <form action= "/events/<%=@dinner.id%>/newFriend" method= "POST">
             <br>
-            <label for="email">Invite a new friend to <%=@dinner.title%>:</label>
+            <label for="email">Invite a friend:</label>
             <input type="email" name="email"
                 pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="E-mail" required>
 
@@ -70,7 +73,7 @@
     <%if @email%>
         <p><%=@user.email%> has been invited!</p>
     <%end%>
-    </div>
+
 
 
 
@@ -81,11 +84,11 @@
 //
 //
     Remove Friend -->
-  <div class="container">
+
 
     <% if current_user.id == @dinner.user_id %>
       <form action= "/events/<%=@dinner.id%>/deleteFriend" method="POST">
-       <br><label for="friendID">Delete a friend from <%=@dinner.title%>:</label>
+       <br><label for="friendID">Remove friend:</label>
         <input type="text" name="friendID" placeholder="ID" required>
         <input type= "submit" value="Submit" class="btn btn-primary"/>
       </form>
@@ -96,18 +99,20 @@
 
 
 
+
 <!--
 //
 //
 //
     Add restaurant  -->
-  <div class="container">
+    <div class="col-md-4">
 
 
     <% if current_user.id == @dinner.user_id %>
-      <% if @dinner.restaurant_id ==0%>
+
+      <% if @dinner.restaurant_id == nil%>
       <form action= "/events/<%=@dinner.id%>/addRes" method="POST">
-        <br><label for="rest_name">Select a restaurant for <%=@dinner.title%>:</label>
+        <br><label for="rest_name">Select restaurant:</label>
         <input type="text" name="rest_name" placeholder="Name" required>
         <input type= "submit" value="Submit" class="btn btn-primary"/>
       </form><br>
@@ -115,8 +120,169 @@
         <br>
     <%end%>
     <%end%>
+
+
+
+
+
+      <!--
+      //
+      //
+      //
+          Create Poll  -->
+
+  <% if rest_name == "undecided" and @dinner.user_id == current_user.id and (Group.all(event_id: @dinner.id).count + 1 >= 3) %>
+
+    <%if Poll.first(event_id: @dinner.id, start:true) %>
+          <%else %>
+    <form action= "/events/<%=@dinner.id%>/create_Poll" method="POST">
+      <label for="rest_name">Create a Poll:</label>
+      <input type="text" name="rest_name" placeholder="Name" required>
+      <input type= "submit" value="Submit" class="btn btn-primary"/>
+    </form>
+          <%end %>
+
+      <%else %>
+        <%if @dinner.user_id == current_user.id %>
+        <font color="red">Polls require at least 3 attendies</font>
+        <%end %>
+  <%end %>
+
+
+</div>
+    <% if rest_name == "undecided" and Poll.all(event_id: @dinner.id).count >0 and @dinner.user_id == current_user.id %>
+    <div class="col-md-4">
+      <% if Poll.first(event_id: @dinner.id, start: false)%>
+      <h5>Current candidates</h5>
+      <%Poll.all(event_id: @dinner.id).each do |p| %>
+        <% rest = Restaurant.first(id: p.rest_id)%>
+        <% if rest %>
+          <p>ID: <%=rest.id%>, Name: <%=rest.rest_name%></p>
+          <%end %>
+
+      <% end %>
+      <% end %>
+
+      <%if Poll.all(event_id: @dinner.id, start: false).count > (Group.all(event_id: @dinner.id).count - 1)%>
+
+          <form action= "/events/<%=@dinner.id%>/startPoll" method="POST">
+            <input type= "submit" value="Start the Poll!" class="btn btn-primary"/>
+          </form>
+
+        <%else %>
+        <%if Poll.all(event_id: @dinner.id, start: true).count > (Group.all(event_id: @dinner.id).count - 1) %>
+          <% if Vote.first(user_id: current_user.id, event_id: @dinner.id) == nil %>
+            <h5>Vote for restaurant</h5>
+          <form action= "/events/<%=@dinner.id%>/vote" method="POST">
+          <%Poll.all(event_id: @dinner.id, start:true).each do |c| %>
+            <input type="radio"  name="vote" value='<%= c.rest_id %>'> <%=Restaurant.first(id: c.rest_id).rest_name  %></label><br>
+
+            <%end%>
+          <input type="submit" value="Submit" class="btn btn-primary">
+          </form>
+            <%else %>
+            <h5>Result</h5>
+
+            <% num = 0 %>
+            <%Poll.all(event_id: @dinner.id).each do |p| %>
+            <li><%=Restaurant.first(id: p.rest_id).rest_name%>:  <%=Vote.all(event_id: @dinner.id, rest_id: p.rest_id).count %> votes</li>
+            <% num += Vote.all(event_id: @dinner.id, rest_id: p.rest_id).count %>
+            <%end %>
+          <%end %>
+          <% count =0 %>
+          <% Group.all(event_id: @dinner.id, user_id: current_user.id).each do |n|%>
+            <%if n.friend_id != -1 %>
+              <% count +=1 %>
+            <%end %>
+          <%end %>
+          <% count +=1 %>
+
+          <!-- Poll Winner  -->
+          <% if num == count %>
+
+            <% x =0 %>
+            <% name ="" %>
+            <%Poll.all(event_id: @dinner.id).each do |p| %>
+            <%if Vote.all(event_id: @dinner.id, rest_id: p.rest_id).count > x %>
+              <% x = Vote.all(event_id: @dinner.id, rest_id: p.rest_id).count %>
+                <%name =Restaurant.first(id: p.rest_id).rest_name %>
+              <%end %>
+          <%end %>
+          <br><h5>Winner: <%=name %></h5>
+          <%end%>
+
+
+
+          <%else %>
+          <h5> Pick another candidate</h5>
+          <%end %>
+
+
+      <%end %>
+
+    </div>
+      <%end %>
   </div>
 
+
+
+
+
+<!--
+//
+//
+//
+    Event member to see Poll  -->
+
+<% if Group.first(event_id: @dinner.id, friend_id: current_user.id)%>
+    <%if Poll.all(event_id: @dinner.id, start: true).count > (Group.all(event_id: @dinner.id).count - 1) %>
+  <div class="col-md-4"><br>
+
+      <% if Vote.first(user_id: current_user.id, event_id: @dinner.id) == nil %>
+        <h5>Vote for restaurant</h5>
+        <form action= "/events/<%=@dinner.id%>/vote" method="POST">
+          <%Poll.all(event_id: @dinner.id, start:true).each do |c| %>
+            <input type="radio"  name="vote" value='<%= c.rest_id %>'> <%=Restaurant.first(id: c.rest_id).rest_name  %></label><br>
+
+          <%end%>
+          <input type="submit" value="Submit" class="btn btn-primary">
+        </form>
+  </div>
+    <%else %>
+      <h5>Result</h5>
+
+      <% num = 0 %>
+      <%Poll.all(event_id: @dinner.id).each do |p| %>
+        <li><%=Restaurant.first(id: p.rest_id).rest_name%>:  <%=Vote.all(event_id: @dinner.id, rest_id: p.rest_id).count %> votes</li>
+        <% num += Vote.all(event_id: @dinner.id, rest_id: p.rest_id).count %>
+      <%end %>
+      <%end %>
+    <% count =0 %>
+    <% Group.all(event_id: @dinner.id, user_id: @dinner.user_id).each do |n|%>
+      <%if n.friend_id != -1 %>
+        <% count +=1 %>
+      <%end %>
+    <%end %>
+    <% count +=1 %>
+
+    <!-- Poll Winner  -->
+    <% if num == count %>
+
+      <% x =0 %>
+      <% name ="" %>
+      <%Poll.all(event_id: @dinner.id).each do |p| %>
+        <%if Vote.all(event_id: @dinner.id, rest_id: p.rest_id).count > x %>
+          <% x = Vote.all(event_id: @dinner.id, rest_id: p.rest_id).count %>
+          <%name =Restaurant.first(id: p.rest_id).rest_name %>
+        <%end %>
+      <%end %>
+      <br><h5>Winner: <%=name %></h5>
+    <%end%>
+    <%end %>
+
+  <%end %>
+
+</div>
 
 
 
@@ -128,7 +294,7 @@
 //
 //
     Friends that are attending -->
-<div class="container">
+<br><div class="container">
   <div class="row">
     <div class="col-md-4">
       <% if current_user.id != @dinner.user_id %>

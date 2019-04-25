@@ -485,7 +485,9 @@ post "/events/:id/cancel" do
 end
 
 
+# Host can add res to an their event
 post "/events/:id/addRes"do
+	authenticate!
 
   if params[:id] and params[:rest_name]
   rest_id = Restaurant.first(rest_name: params[:rest_name])
@@ -506,4 +508,104 @@ post "/events/:id/addRes"do
     end
 	end
 
+end
+
+
+post "/events/:id/create_Poll" do
+	authenticate!
+
+  if params[:id] and params["rest_name"]
+
+		rest = Restaurant.first(rest_name: params["rest_name"])
+
+    if rest
+			poll = Poll.first(event_id: params[:id], rest_id: rest.id)
+      if poll
+				flash[:error] = "#{params["rest_name"]} is already a candidate"
+				redirect "/events/#{params[:id]}"
+      else
+				if (Poll.all(event_id: params[:id]).count + 1) != (Group.all(event_id: params[:id]).count + 1)
+					poll = Poll.new
+					poll.user_id = current_user.id
+					poll.event_id = params[:id]
+					poll.rest_id = rest.id
+					poll.save
+					flash[:success] = "#{params["rest_name"]} was added as a candidate"
+					redirect "/events/#{params[:id]}"
+				else
+					flash[:error] = "Polling is above limit "
+					redirect "/events/#{params[:id]}"
+
+				end
+      end
+
+
+    else
+			flash[:error] = "Restaurant not found"
+			redirect "/events/#{params[:id]}"
+
+	end
+  else
+    flash[:error] = "Event not found"
+		redirect "/events"
+
+  end
+end
+
+# To start the poll - just sets it to true
+post "/events/:id/startPoll"do
+
+  if params[:id]
+
+
+
+
+    rest = Poll.first(event_id: params[:id])
+
+    if rest.user_id == current_user.id
+
+      Poll.all(user_id: current_user.id, event_id: params[:id]).each do |p|
+        p.start = true
+        p.save
+      end
+			flash[:success] = "Polling has started"
+			redirect "/events/#{params[:id]}"
+    else
+      flash[:error] = "Error"
+			redirect "/events/#{params[:id]}"
+    end
+
+
+  else
+    redirect '/'
+  end
+
+end
+
+
+# Placing vote
+post "/events/:id/vote" do
+
+  if params[:id] and params[:vote]
+
+    v = Vote.first(user_id: current_user.id, event_id: params[:id])
+    if v
+      flash[:error] = "You have already voted"
+
+    else
+      v = Vote.new
+      v.user_id = current_user.id
+      v.event_id = params[:id]
+      v.rest_id = params[:vote]
+      v.vote = true
+      v.save
+
+      flash[:success] = "Vote placed"
+
+    end
+		redirect "/events/#{params[:id]}"
+
+  else
+    redirect "/"
+  end
 end

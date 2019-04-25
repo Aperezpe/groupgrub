@@ -77,24 +77,28 @@ class Comment
     property :user_id, Integer
     property :event_id, Integer
     property :comment, Text
-    
+
 end
+
 
 class Poll
     include DataMapper::Resource
     property :id, Serial
     property :created_at, DateTime
-    property :user_id, Integer # Host ID
+    property :user_id, Integer
     property :event_id, Integer
-    property :restaurant_id, Integer
-    # property :vote, Boolean, :default => false    
+    property :rest_id, Integer
+    property :start, Boolean, :default => false
+
 end
 
 class Vote
     include DataMapper::Resource
     property :id, Serial
     property :user_id, Integer
-    property :poll_id, Integer
+    property :event_id, Integer
+    property :rest_id, Integer
+    property :vote, Boolean
     property :created_at, DateTime
 end
 
