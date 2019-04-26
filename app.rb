@@ -424,11 +424,16 @@ post "/events/delete" do
 	e = Event.get(params["id"])
 	g = Group.all(event_id: e.id)
 
-  if e
-		e.destroy
-		g.destroy
-		flash[:success] = "Dinner has been deleted!"
-		redirect "/events"
+	if e
+		if current_user.id == e.user_id
+			e.destroy
+			g.destroy
+			flash[:success] = "Dinner has been deleted!"
+			redirect "/events"
+		else
+			flash[:error] = "Youn can't delete this dinner because you're not the host"
+			redirect "/events"
+		end
 
 	else
 		flash[:error] = "Dinner not found"
