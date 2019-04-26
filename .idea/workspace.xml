@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f9c1fc75-1e7f-44a0-a1b0-6207b522951d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spec/modeling.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/modeling.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/event.erb" beforeDir="false" afterPath="$PROJECT_DIR$/views/event.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.db" beforeDir="false" afterPath="$PROJECT_DIR$/app.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/friends.erb" beforeDir="false" afterPath="$PROJECT_DIR$/views/friends.erb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,12 +33,12 @@
     </favorites_list>
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="530" column="28" selection-start-line="530" selection-start-column="28" selection-end-line="530" selection-end-column="28" />
+            <state relative-caret-position="2299">
+              <caret line="121" column="20" selection-start-line="121" selection-start-column="13" selection-end-line="121" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -46,8 +46,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/friends.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1330">
-              <caret line="70" column="13" lean-forward="true" selection-start-line="70" selection-start-column="13" selection-end-line="70" selection-end-column="13" />
+            <state relative-caret-position="19">
+              <caret line="1" column="8" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -55,26 +55,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="429">
-              <caret line="97" column="30" lean-forward="true" selection-start-line="97" selection-start-column="30" selection-end-line="97" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/spec/modeling.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="365">
-              <caret line="61" column="45" selection-start-line="61" selection-start-column="45" selection-end-line="61" selection-end-column="45" />
+            <state relative-caret-position="2147">
+              <caret line="113" column="34" selection-start-line="113" selection-start-column="34" selection-end-line="113" selection-end-column="34" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/spec/modeling.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1330">
+              <caret line="70" column="47" selection-start-line="70" selection-start-column="47" selection-end-line="70" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/event.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="413">
-              <caret line="152" column="78" selection-start-line="152" selection-start-column="78" selection-end-line="152" selection-end-column="78" />
+            <state relative-caret-position="800">
+              <caret line="51" column="2" selection-start-line="51" selection-start-column="2" selection-end-line="51" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -82,8 +82,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/navigation.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="426">
-              <caret line="26" column="15" lean-forward="true" selection-start-line="26" selection-start-column="15" selection-end-line="26" selection-end-column="15" />
+            <state relative-caret-position="494">
+              <caret line="26" column="15" selection-start-line="26" selection-start-column="15" selection-end-line="26" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -92,7 +92,7 @@
         <entry file="file://$PROJECT_DIR$/views/events.erb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="855">
-              <caret line="45" column="24" lean-forward="true" selection-start-line="36" selection-start-column="16" selection-end-line="45" selection-end-column="24" />
+              <caret line="45" column="24" selection-start-line="36" selection-start-column="16" selection-end-line="45" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -100,8 +100,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/requests.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="520">
-              <caret line="39" column="68" lean-forward="true" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="68" />
+            <state relative-caret-position="1558">
+              <caret line="82" column="129" selection-start-line="82" selection-start-column="66" selection-end-line="82" selection-end-column="129" />
             </state>
           </provider>
         </entry>
@@ -110,11 +110,7 @@
         <entry file="file://$PROJECT_DIR$/views/authentication/sign_up.erb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="2926">
-              <caret line="154" column="39" lean-forward="true" selection-start-line="154" selection-start-column="14" selection-end-line="154" selection-end-column="39" />
-              <folding>
-                <element signature="n#style#0;n#div#4;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#form#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#5;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#form#0;n#!!top" expanded="true" />
-              </folding>
+              <caret line="154" column="39" selection-start-line="154" selection-start-column="14" selection-end-line="154" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -122,7 +118,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/authentication.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
+            <state relative-caret-position="1178">
               <caret line="62" column="46" selection-start-line="62" selection-start-column="46" selection-end-line="62" selection-end-column="46" />
             </state>
           </provider>
@@ -145,6 +141,7 @@
       <find>date</find>
       <find>event</find>
       <find>pick another</find>
+      <find>Delete</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -178,18 +175,18 @@
         <option value="$PROJECT_DIR$/views/res_account_edit.erb" />
         <option value="$PROJECT_DIR$/views/account_edit.erb" />
         <option value="$PROJECT_DIR$/views/navigation.erb" />
-        <option value="$PROJECT_DIR$/views/friends.erb" />
         <option value="$PROJECT_DIR$/authentication.rb" />
         <option value="$PROJECT_DIR$/views/events.erb" />
         <option value="$PROJECT_DIR$/views/requests.erb" />
         <option value="$PROJECT_DIR$/models.rb" />
+        <option value="$PROJECT_DIR$/spec/modeling.rb" />
         <option value="$PROJECT_DIR$/app.rb" />
         <option value="$PROJECT_DIR$/views/event.erb" />
-        <option value="$PROJECT_DIR$/spec/modeling.rb" />
+        <option value="$PROJECT_DIR$/views/friends.erb" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="width" value="1680" />
     <option name="height" value="1050" />
   </component>
@@ -198,7 +195,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -231,6 +227,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -261,7 +258,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1555490006213</updated>
-      <workItem from="1555490009979" duration="130288000" />
+      <workItem from="1555490009979" duration="134132000" />
+      <workItem from="1556314632314" duration="4000" />
+      <workItem from="1556314913809" duration="360000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed a bug with request friend checkbox, where both boxes could be checked at the same time">
       <created>1555712581585</created>
@@ -340,11 +339,25 @@
       <option name="project" value="LOCAL" />
       <updated>1556223803089</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Event requests - now show in the requests. Updated look inside event. Some new features much as Restaurant name will be displayed in request and in the events. Can add restaurant to an event. Guest can also leave event. A few bug fixes - Plus voting, new test">
+      <created>1556224596753</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1556224596753</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Event requests - now show in the requests. Updated look inside event. Some new features much as Restaurant name will be displayed in request and in the events. Can add restaurant to an event. Guest can also leave event. A few bug fixes - Plus voting, new test. Ready for tabs">
+      <created>1556313770031</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1556313770031</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="130288000" />
+    <option name="totallyTimeSpent" value="134496000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -356,13 +369,13 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1680" height="1050" extended-state="6" />
+    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" sideWeight="0.50076103" side_tool="true" weight="0.24969475" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49923897" visible="true" weight="0.26984128" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49923897" visible="true" weight="0.2759463" />
       <window_info id="Structure" order="2" sideWeight="0.50076103" side_tool="true" weight="0.24969475" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="0" sideWeight="0.498779" visible="true" weight="0.2" />
+      <window_info anchor="bottom" id="Terminal" order="0" sideWeight="0.498779" visible="true" weight="0.2" />
       <window_info anchor="bottom" id="Database Changes" order="1" weight="0.32959184" />
       <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.501221" side_tool="true" weight="0.2" />
       <window_info anchor="bottom" id="Version Control" order="3" sideWeight="0.4993895" weight="0.32959184" />
@@ -408,6 +421,20 @@
         </entry>
       </map>
     </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Fixed a bug with request friend checkbox, where both boxes could be checked at the same time" />
@@ -416,16 +443,12 @@
     <MESSAGE value="Event requests - now show in the requests. Updated look inside event. Some new features." />
     <MESSAGE value="Event requests - now show in the requests. Updated look inside event. Some new features much as Restaurant name will be displayed in request and in the events. Can add restaurant to an event. Guest can also leave event. A few bug fixes" />
     <MESSAGE value="Event requests - now show in the requests. Updated look inside event. Some new features much as Restaurant name will be displayed in request and in the events. Can add restaurant to an event. Guest can also leave event. A few bug fixes - Plus voting" />
-    <option name="LAST_COMMIT_MESSAGE" value="Event requests - now show in the requests. Updated look inside event. Some new features much as Restaurant name will be displayed in request and in the events. Can add restaurant to an event. Guest can also leave event. A few bug fixes - Plus voting" />
+    <MESSAGE value="Event requests - now show in the requests. Updated look inside event. Some new features much as Restaurant name will be displayed in request and in the events. Can add restaurant to an event. Guest can also leave event. A few bug fixes - Plus voting, new test" />
+    <MESSAGE value="Event requests - now show in the requests. Updated look inside event. Some new features much as Restaurant name will be displayed in request and in the events. Can add restaurant to an event. Guest can also leave event. A few bug fixes - Plus voting, new test. Ready for tabs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Event requests - now show in the requests. Updated look inside event. Some new features much as Restaurant name will be displayed in request and in the events. Can add restaurant to an event. Guest can also leave event. A few bug fixes - Plus voting, new test. Ready for tabs" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/views/authentication/sign_up_fail.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="34" selection-start-column="24" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/views/authentication/sign_up_fail.erb" />
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -439,34 +462,10 @@
     <entry file="file://$PROJECT_DIR$/Procfile">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/friend_exist.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="28" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/friend_added.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="4" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/friend_removed.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="4" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/friend_sad.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="4" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/views/friend_exist.erb" />
+    <entry file="file://$PROJECT_DIR$/views/friend_added.erb" />
+    <entry file="file://$PROJECT_DIR$/views/friend_removed.erb" />
+    <entry file="file://$PROJECT_DIR$/views/friend_sad.erb" />
     <entry file="file://$PROJECT_DIR$/views/authentication/invalid_login.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -567,77 +566,73 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/authentication.rb">
+    <entry file="file://$PROJECT_DIR$/app.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="62" column="46" selection-start-line="62" selection-start-column="46" selection-end-line="62" selection-end-column="46" />
+        <state relative-caret-position="2299">
+          <caret line="121" column="20" selection-start-line="121" selection-start-column="13" selection-end-line="121" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/authentication/sign_up.erb">
+    <entry file="file://$PROJECT_DIR$/models.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2926">
-          <caret line="154" column="39" lean-forward="true" selection-start-line="154" selection-start-column="14" selection-end-line="154" selection-end-column="39" />
-          <folding>
-            <element signature="n#style#0;n#div#4;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#form#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#5;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#form#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="2147">
+          <caret line="113" column="34" selection-start-line="113" selection-start-column="34" selection-end-line="113" selection-end-column="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/requests.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="39" column="68" lean-forward="true" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/friends.erb">
+    <entry file="file://$PROJECT_DIR$/spec/modeling.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1330">
-          <caret line="70" column="13" lean-forward="true" selection-start-line="70" selection-start-column="13" selection-end-line="70" selection-end-column="13" />
+          <caret line="70" column="47" selection-start-line="70" selection-start-column="47" selection-end-line="70" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/navigation.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="26" column="15" selection-start-line="26" selection-start-column="15" selection-end-line="26" selection-end-column="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/events.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="855">
-          <caret line="45" column="24" lean-forward="true" selection-start-line="36" selection-start-column="16" selection-end-line="45" selection-end-column="24" />
+          <caret line="45" column="24" selection-start-line="36" selection-start-column="16" selection-end-line="45" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.rb">
+    <entry file="file://$PROJECT_DIR$/views/requests.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="530" column="28" selection-start-line="530" selection-start-column="28" selection-end-line="530" selection-end-column="28" />
+        <state relative-caret-position="1558">
+          <caret line="82" column="129" selection-start-line="82" selection-start-column="66" selection-end-line="82" selection-end-column="129" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/navigation.erb">
+    <entry file="file://$PROJECT_DIR$/views/authentication/sign_up.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="426">
-          <caret line="26" column="15" lean-forward="true" selection-start-line="26" selection-start-column="15" selection-end-line="26" selection-end-column="15" />
+        <state relative-caret-position="2926">
+          <caret line="154" column="39" selection-start-line="154" selection-start-column="14" selection-end-line="154" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/authentication.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1178">
+          <caret line="62" column="46" selection-start-line="62" selection-start-column="46" selection-end-line="62" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/friends.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" column="8" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/event.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="152" column="78" selection-start-line="152" selection-start-column="78" selection-end-line="152" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="97" column="30" lean-forward="true" selection-start-line="97" selection-start-column="30" selection-end-line="97" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/modeling.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="61" column="45" selection-start-line="61" selection-start-column="45" selection-end-line="61" selection-end-column="45" />
+        <state relative-caret-position="800">
+          <caret line="51" column="2" selection-start-line="51" selection-start-column="2" selection-end-line="51" selection-end-column="2" />
         </state>
       </provider>
     </entry>
