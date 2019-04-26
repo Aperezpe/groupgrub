@@ -21,6 +21,27 @@
 
 
 
+    <% if rest_name != "undecided" %>
+      <div class="row">
+        <div class="col-md-4">
+      <form action= "/tab/<%=@dinner.id%>/order" method="POST">
+        <br><label for="orderID"></label>
+        <input type= "submit" value="Select items" class="btn btn-primary"/>
+      </form>
+        </div>
+
+          <div class="col-md-4">
+      <form action= "/tab/<%=@dinner.id%>/total" method="POST">
+        <br><label for="orderID"></label>
+        <input type= "submit" value="Pay Now" class="btn btn-primary" formaction="/tab/<%=@dinner.id%>/total" formmethod="POST"/>
+      </form>
+          </div>
+
+    <%end %>
+  </div><br>
+
+
+
 
 
 
@@ -33,12 +54,14 @@
 //
     Cancel Event -->
   <% if current_user.id == @dinner.user_id %>
+    <div class="container">
   <form action="/events/delete" method="POST">
     <input type="hidden" name="id" value ="<%=@dinner.id%>"/>
     <br><input type="submit" value="Delete Event" class="btn btn-primary"/>
   </form>
   <br>
     <%end%>
+</div>
 </div>
 
 

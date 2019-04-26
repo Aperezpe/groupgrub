@@ -609,3 +609,17 @@ post "/events/:id/vote" do
     redirect "/"
   end
 end
+
+
+# Set orders
+post "/tab/:id/order" do
+
+
+end
+
+
+# Total
+post "/tab/:id/total" do
+
+
+end
