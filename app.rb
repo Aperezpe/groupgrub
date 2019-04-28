@@ -524,7 +524,7 @@ post "/events/:id/create_Poll" do
 				flash[:error] = "#{params["rest_name"]} is already a candidate"
 				redirect "/events/#{params[:id]}"
       else
-				if (Poll.all(event_id: params[:id]).count + 1) != (Group.all(event_id: params[:id]).count + 1)
+				if (Poll.all(event_id: params[:id]).count + 1) != (Group.all(event_id: params[:id]).count)
 					poll = Poll.new
 					poll.user_id = current_user.id
 					poll.event_id = params[:id]
