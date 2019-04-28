@@ -3,7 +3,7 @@
   <form method="Post" action="/res_account/update">
     <h1>Edit Account info for <%=current_res_user.rest_name %> </h1><br>
 
-    <p>Email: <input type="text" name="email"  value=<%=current_res_user.email%>></p>
+    <p>Email: <input type="email" name="email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" value=<%=current_res_user.email%>></p>
     <p>Address: <input type="text" name="address"  value=<%=current_res_user.rest_address%>></p>
     <p>Phone: <input type="integer" name="phone" value=<%=current_res_user.rest_phone%>></p>
     <p>Open at: <input type="text" name="open" value=<%=current_res_user.open_time%>></p>
