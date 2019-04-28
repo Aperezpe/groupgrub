@@ -4,6 +4,8 @@
     <list default="true" id="f9c1fc75-1e7f-44a0-a1b0-6207b522951d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.db" beforeDir="false" afterPath="$PROJECT_DIR$/app.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/event.erb" beforeDir="false" afterPath="$PROJECT_DIR$/views/event.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/friends.erb" beforeDir="false" afterPath="$PROJECT_DIR$/views/friends.erb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,11 +36,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2299">
-              <caret line="121" column="20" selection-start-line="121" selection-start-column="13" selection-end-line="121" selection-end-column="20" />
+            <state relative-caret-position="681">
+              <caret line="257" column="14" selection-start-line="257" selection-start-column="14" selection-end-line="257" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -46,8 +48,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/friends.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="1" column="8" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
+            <state relative-caret-position="64">
+              <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/event.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="445">
+              <caret line="84" column="96" lean-forward="true" selection-start-line="84" selection-start-column="16" selection-end-line="84" selection-end-column="96" />
             </state>
           </provider>
         </entry>
@@ -66,15 +77,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1330">
               <caret line="70" column="47" selection-start-line="70" selection-start-column="47" selection-end-line="70" selection-end-column="47" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/views/event.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="800">
-              <caret line="51" column="2" selection-start-line="51" selection-start-column="2" selection-end-line="51" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -142,6 +144,7 @@
       <find>event</find>
       <find>pick another</find>
       <find>Delete</find>
+      <find>invite</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -149,7 +152,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Restaurant_Login" />
+        <entry key="$PROJECT_DIR$" value="Res_Plus_Events" />
       </map>
     </option>
   </component>
@@ -180,9 +183,9 @@
         <option value="$PROJECT_DIR$/views/requests.erb" />
         <option value="$PROJECT_DIR$/models.rb" />
         <option value="$PROJECT_DIR$/spec/modeling.rb" />
-        <option value="$PROJECT_DIR$/app.rb" />
         <option value="$PROJECT_DIR$/views/event.erb" />
         <option value="$PROJECT_DIR$/views/friends.erb" />
+        <option value="$PROJECT_DIR$/app.rb" />
       </list>
     </option>
   </component>
@@ -260,7 +263,7 @@
       <updated>1555490006213</updated>
       <workItem from="1555490009979" duration="134132000" />
       <workItem from="1556314632314" duration="4000" />
-      <workItem from="1556314913809" duration="360000" />
+      <workItem from="1556314913809" duration="5354000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed a bug with request friend checkbox, where both boxes could be checked at the same time">
       <created>1555712581585</created>
@@ -353,11 +356,25 @@
       <option name="project" value="LOCAL" />
       <updated>1556313770031</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Event requests - now show in the requests. Updated look inside event. Some new features much as Restaurant name will be displayed in request and in the events. Can add restaurant to an event. Guest can also leave event. A few bug fixes - Plus voting, new test. Ready for tabs">
+      <created>1556315577119</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1556315577119</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Small Poll fix and now has winner button">
+      <created>1556425349942</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1556425349942</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="134496000" />
+    <option name="totallyTimeSpent" value="139490000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -445,7 +462,8 @@
     <MESSAGE value="Event requests - now show in the requests. Updated look inside event. Some new features much as Restaurant name will be displayed in request and in the events. Can add restaurant to an event. Guest can also leave event. A few bug fixes - Plus voting" />
     <MESSAGE value="Event requests - now show in the requests. Updated look inside event. Some new features much as Restaurant name will be displayed in request and in the events. Can add restaurant to an event. Guest can also leave event. A few bug fixes - Plus voting, new test" />
     <MESSAGE value="Event requests - now show in the requests. Updated look inside event. Some new features much as Restaurant name will be displayed in request and in the events. Can add restaurant to an event. Guest can also leave event. A few bug fixes - Plus voting, new test. Ready for tabs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Event requests - now show in the requests. Updated look inside event. Some new features much as Restaurant name will be displayed in request and in the events. Can add restaurant to an event. Guest can also leave event. A few bug fixes - Plus voting, new test. Ready for tabs" />
+    <MESSAGE value="Small Poll fix and now has winner button" />
+    <option name="LAST_COMMIT_MESSAGE" value="Small Poll fix and now has winner button" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/views/authentication/sign_up_fail.erb" />
@@ -566,13 +584,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2299">
-          <caret line="121" column="20" selection-start-line="121" selection-start-column="13" selection-end-line="121" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2147">
@@ -622,17 +633,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/friends.erb">
+    <entry file="file://$PROJECT_DIR$/views/event.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" column="8" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
+        <state relative-caret-position="445">
+          <caret line="84" column="96" lean-forward="true" selection-start-line="84" selection-start-column="16" selection-end-line="84" selection-end-column="96" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/event.erb">
+    <entry file="file://$PROJECT_DIR$/views/friends.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="800">
-          <caret line="51" column="2" selection-start-line="51" selection-start-column="2" selection-end-line="51" selection-end-column="2" />
+        <state relative-caret-position="64">
+          <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="681">
+          <caret line="257" column="14" selection-start-line="257" selection-start-column="14" selection-end-line="257" selection-end-column="14" />
         </state>
       </provider>
     </entry>

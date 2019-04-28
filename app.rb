@@ -243,6 +243,28 @@ post "/friends/remove" do
 				if removeFriend and removeFreind_CurrentUser
 					removeFriend.destroy!
 					removeFreind_CurrentUser.destroy!
+
+          g = Group.all(user_id: current_user.id, friend_id: u.id)
+
+          if g
+            g.each do |d|
+              g.destroy!
+            end
+          end
+
+          e =Event.all(user_id: current_user.id)
+          if e
+            e.each do |e|
+              v = Vote.all(event_id: e.id, user_id: u.id)
+              if v
+                v.each do |x|
+                  x.destroy!
+                end
+              end
+
+            end
+          end
+
         	flash[:success] = "Friendship with #{u.email} has been deleted"
 					redirect "/friends"
 				else
