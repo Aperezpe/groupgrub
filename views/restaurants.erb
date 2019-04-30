@@ -1,0 +1,16 @@
+<!-- need to loop through all of rest and add button to lead to menu to specific -->
+<div class="container">
+  <form action= "/restaurants/:id/menu" method= "GET">
+    <br><br>
+      <% @restaurant.each do |r|%>
+<button type="submit" value="id" formaction= "/restaurants/<%= r.id%>/menu"><%= r.rest_name%></button>
+<br><br>
+  <% end %>
+  </form>
+</div>
+<div class="container">
+
+
+
+</div>
+<br><br>

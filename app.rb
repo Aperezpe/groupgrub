@@ -609,3 +609,22 @@ post "/events/:id/vote" do
     redirect "/"
   end
 end
+
+get "/menu" do
+	#authenticate!
+	rest_id = params[:r_id]
+	@dish = Dish.all(restaurant_id: rest_id)
+	erb :menu
+end
+
+get "/restaurants" do
+	#authenticate!
+	@restaurant = Restaurant.all
+	erb :restaurants
+end
+
+get "/events/rest/:r_id/menu" do
+	rest_id = params[:r_id]
+	@dish = Dish.all(restaurant_id: rest_id)
+	erb :menu
+end

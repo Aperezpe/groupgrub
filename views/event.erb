@@ -20,11 +20,13 @@
     <h3>Restaurant: <%=rest_name %></h3>
 
 
-
-
-
-
-
+<!--show menu of the restauant to menu -->
+  <% if @dinner.restaurant_id %>
+      <form action="/events/rest/:r_id" method="GET">
+      <input type="hidden" name="r_id" value ="<%=@dinner.restaurant_id%>"/>
+      <button type="submit" value= "<%=@dinner.restaurant_id%>" formaction= "/events/rest/<%=@dinner.restaurant_id%>/menu" class="btn btn-primary"> menu</button>
+      </form>
+  <% end %>
 
 
   <!--
