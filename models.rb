@@ -126,7 +126,7 @@ class Dish
     property :restaurant_id, Integer
     property :dish_name, Text
     property :dish_des, Text
-    property :dish_price, Integer
+    property :dish_price, Float
 end
 
 class Drink
@@ -135,7 +135,7 @@ class Drink
     property :restaurant_id, Integer
     property :drink_name, Text
     property :drink_des, Text
-    property :drink_price, Integer
+    property :drink_price, Float
 end
 
 class Tab

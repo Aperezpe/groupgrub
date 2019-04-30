@@ -96,7 +96,6 @@ post "/register" do
 
       end
     end
-
   end
 
 
