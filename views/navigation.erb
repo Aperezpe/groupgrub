@@ -9,7 +9,7 @@
 
 
       <!-- Added your page tab here under current_user-->
-      <% if current_user%>
+      <% if current_user or current_res_user%>
         <% if current_user %>
           <li class="nav-item">
             <a class="nav-link" href="/dashboard">Home</a>
@@ -36,6 +36,9 @@
         <% if current_res_user %>
           <li class="nav-item">
             <a class="nav-link" href="/res">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/ADD ADDRESS HERE">Menu</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/res_account">My Account</a>
