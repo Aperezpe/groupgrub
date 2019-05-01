@@ -178,6 +178,7 @@ Vote.auto_upgrade!
 Restaurant.auto_upgrade!
 Dish.auto_upgrade!
 Drink.auto_upgrade!
-Tab.auto_upgrade!
+Order.auto_upgrade!
+Total.auto_upgrade!
 
 DataMapper::Model.raise_on_save_failure = true  # globally across all models
