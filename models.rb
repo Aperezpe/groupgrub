@@ -80,32 +80,44 @@ class Comment
     
 end
 
+
 class Poll
     include DataMapper::Resource
     property :id, Serial
     property :created_at, DateTime
-    property :user_id, Integer # Host ID
+    property :user_id, Integer
     property :event_id, Integer
-    property :restaurant_id, Integer
-    # property :vote, Boolean, :default => false    
+    property :rest_id, Integer
+    property :start, Boolean, :default => false
+  
 end
 
 class Vote
     include DataMapper::Resource
     property :id, Serial
     property :user_id, Integer
-    property :poll_id, Integer
+    property :event_id, Integer
+    property :rest_id, Integer
+    property :vote, Boolean
     property :created_at, DateTime
 end
 
 class Restaurant
-    include DataMapper::Resource
-    property :id, Serial
-    property :rest_name, Text
-    property :open_time, DateTime
-    property :close_time, DateTime
-    property :rest_phone, Text
-    property :rest_address, Text
+  include DataMapper::Resource
+  property :id, Serial
+  property :rest_name, String
+  property :email, String
+  property :password, String
+  property :open_time, String
+  property :close_time, String
+  property :rest_phone, Integer
+  property :rest_address, String
+  property :created_at, DateTime
+
+  def login(password)
+    return self.password == password
+  end
+
 end
 
 class Dish
