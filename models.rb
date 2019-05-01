@@ -77,47 +77,35 @@ class Comment
     property :user_id, Integer
     property :event_id, Integer
     property :comment, Text
-
+    
 end
-
 
 class Poll
     include DataMapper::Resource
     property :id, Serial
     property :created_at, DateTime
-    property :user_id, Integer
+    property :user_id, Integer # Host ID
     property :event_id, Integer
-    property :rest_id, Integer
-    property :start, Boolean, :default => false
-
+    property :restaurant_id, Integer
+    # property :vote, Boolean, :default => false    
 end
 
 class Vote
     include DataMapper::Resource
     property :id, Serial
     property :user_id, Integer
-    property :event_id, Integer
-    property :rest_id, Integer
-    property :vote, Boolean
+    property :poll_id, Integer
     property :created_at, DateTime
 end
 
 class Restaurant
     include DataMapper::Resource
     property :id, Serial
-    property :rest_name, String
-    property :email, String
-    property :password, String
-    property :open_time, String
-    property :close_time, String
-    property :rest_phone, Integer
-    property :rest_address, String
-    property :created_at, DateTime
-
-    def login(password)
-      return self.password == password
-    end
-
+    property :rest_name, Text
+    property :open_time, DateTime
+    property :close_time, DateTime
+    property :rest_phone, Text
+    property :rest_address, Text
 end
 
 class Dish
@@ -138,16 +126,26 @@ class Drink
     property :drink_price, Integer
 end
 
-class Tab
+class Total
     include DataMapper::Resource
-    property :id, Serial # user submitting to tab
-    property :dish_id, Integer # dish or beverage added
-    property :budget, Integer # budget set by HOST and only host
-    property :cost, Integer # current cost of tab
+    property :id, Serial 
     property :user_id, Integer
-    property :isOverBudget, Boolean, :default => false
-    #functions
+    property :event_id, Integer
+    property :created_at, DateTime
+    property :total_price, Integer 
+   #property :budget, Integer 
+   #property :isOverBudget, Boolean, :default => false
 end
+
+class Order 
+  include DataMapper::Resource 
+  property :id, Serial
+  property :created_at, DateTime
+  property :user_id, Integer
+  property :event_id, Integer
+  property :dish_id, Integer
+  property :drink_id, Integer
+end 
 
 
 
