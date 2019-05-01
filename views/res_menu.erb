@@ -1,0 +1,42 @@
+<div class="container">
+  <form action= "/res_menu/add" method= "POST">
+    <br>
+    Add dish name:       <input type= "text" name= "Dish Name" placeholder="dish_name"/>
+    <br>
+    add dish price:       <input type= "float" name= "Dish price" placeholder="dish_price"/>
+
+    <input type= "submit" value="Submit"/>
+  </form>
+</div>
+
+<style>
+  body{
+    margin-top:20px;
+    background:#FAFAFA;
+  }
+
+  img.profile-photo-lg{
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+  }
+</style>
+
+
+
+
+
+
+
+<!-- Function to display all users in the database
+     Displays user id, user's name, user's email
+-->
+<div class="container">
+  <% @dish.each do |d|%>
+
+<p><%= d.restaurant_id%> <%= d.dish_name%>    $<%=d.dish_price%></p>
+  <% end %>
+
+
+</div>
+<br><br>

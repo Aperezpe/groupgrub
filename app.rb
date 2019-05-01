@@ -610,21 +610,70 @@ post "/events/:id/vote" do
   end
 end
 
-get "/menu" do
-	#authenticate!
-	rest_id = params[:r_id]
-	@dish = Dish.all(restaurant_id: rest_id)
-	erb :menu
-end
-
-get "/restaurants" do
-	#authenticate!
-	@restaurant = Restaurant.all
-	erb :restaurants
-end
-
 get "/events/rest/:r_id/menu" do
 	rest_id = params[:r_id]
 	@dish = Dish.all(restaurant_id: rest_id)
 	erb :menu
+end
+
+get "/:r_id/res_menu" do
+	#authenticate!
+	rest_id = params[:r_id]
+	@dish = Dish.all(restaurant_id: rest_id)
+	erb :res_menu
+end
+
+post "/:r_id/res_menu/add" do
+	#authenticate!
+	if params["dish_name"] && params["dish_price"]
+		d.Dish.new
+		d.dish_name = params["dish_name"]
+		d.dish_price = params["dish_price"]
+		d.save
+	end
+end
+
+
+get "/:r_id/res_menu/:id/edit" do
+	authenticate!
+	@dish = Dish.get(params[:id])
+	if @dish.restaurant_id == current_restaurant.id
+		erb :edit_dish
+	else
+		flash[:error] = "Unauthorized!"
+		redirect "/menu"
+	end
+end
+
+post "/:r_id/res_menu/:id/update" do
+	authenticate!
+	@dish = Dish.get(params[:id])
+	if @dish.dish_id == current_dish.id
+		@dish.dish_name = params["dish_name"] if params["dish_name"]
+		@dish.dish_price = params["dish_price"] if params["dish_price"]
+		@dish.save
+		flash[:success] = "dish updates successfully"
+		redirect "/menu/#{@dish.id}"
+	else
+		flash[:error] = "Unauthorized!"
+		redirect "/menu"
+	end
+end
+
+
+post "/:r_id/res_menu/:id/delete" do
+	@dish = Dish.get(params[:id])
+	if @dish
+		if @dish.restaurant_id == current_restaurant.id
+			@dish.destroy
+			flash[:success] = "Dish successfully deleted."
+			redirect "/re_menu"
+		else
+			flash[:error] = "Unauthorized!"
+			redirect "/re_menu"
+		end
+	else
+		flash[:error] = "Post not found"
+		redirect "/re_menu"
+	end
 end
