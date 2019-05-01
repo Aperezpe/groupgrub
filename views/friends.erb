@@ -1,9 +1,9 @@
 <!-- Function to add friend-->
-
+<br><br>
 <div class="container">
   <form action= "/friends/add" method= "POST">
-    <br><br>
-    Add new friend:       <input type= "text" name= "email" placeholder="Email"/>
+
+    Add new friend: <input type= "email" name= "email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="E-mail" required>
 
     <input type= "submit" value="Submit" class="btn btn-primary"/>
   </form>
@@ -14,7 +14,7 @@
 <div class="container">
   <form action= "/friends/remove" method= "POST">
     <br>
-    Remove friend:       <input type= "text" name= "email" placeholder="Email"/>
+    Remove friend: <input type= "email" name= "email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="E-mail" required>
 
     <input type= "submit" value="Submit" class="btn btn-primary"/>
   </form>

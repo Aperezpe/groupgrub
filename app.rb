@@ -243,6 +243,28 @@ post "/friends/remove" do
 				if removeFriend and removeFreind_CurrentUser
 					removeFriend.destroy!
 					removeFreind_CurrentUser.destroy!
+
+          g = Group.all(user_id: current_user.id, friend_id: u.id)
+
+          if g
+            g.each do |d|
+              g.destroy!
+            end
+          end
+
+          e =Event.all(user_id: current_user.id)
+          if e
+            e.each do |e|
+              v = Vote.all(event_id: e.id, user_id: u.id)
+              if v
+                v.each do |x|
+                  x.destroy!
+                end
+              end
+
+            end
+          end
+
         	flash[:success] = "Friendship with #{u.email} has been deleted"
 					redirect "/friends"
 				else
@@ -524,7 +546,7 @@ post "/events/:id/create_Poll" do
 				flash[:error] = "#{params["rest_name"]} is already a candidate"
 				redirect "/events/#{params[:id]}"
       else
-				if (Poll.all(event_id: params[:id]).count + 1) != (Group.all(event_id: params[:id]).count + 1)
+				if (Poll.all(event_id: params[:id]).count + 1) != (Group.all(event_id: params[:id]).count)
 					poll = Poll.new
 					poll.user_id = current_user.id
 					poll.event_id = params[:id]
@@ -610,6 +632,7 @@ post "/events/:id/vote" do
   end
 end
 
+<<<<<<< HEAD
 get "/events/rest/:r_id/menu" do
 	rest_id = params[:r_id]
 	@dish = Dish.all(restaurant_id: rest_id)
@@ -676,4 +699,20 @@ post "/:r_id/res_menu/:id/delete" do
 		flash[:error] = "Post not found"
 		redirect "/re_menu"
 	end
+=======
+
+
+
+# Set orders
+post "/tab/:id/order" do
+
+
+end
+
+
+# Total
+post "/tab/:id/total" do
+
+
+>>>>>>> c9537e2fe1bb71ea0db0cddc461f07491a032a36
 end
