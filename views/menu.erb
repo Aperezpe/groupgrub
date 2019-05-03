@@ -1,15 +1,12 @@
+<div class = "container"><br><br>
+<h1>Select an item</h1>
+ <% Dish.all(restaurant_id: params[:r_id]).each do |item| %>
+ <input type = "radio" name = "dishID" value = '<%= item.id%> '></label>
+ <h1><%=item.dish_name%></h1>
+ <p><%=item.dish_des%></p>
+  <p><%=item.dish_price%></p>
 
-<div class="container">
-<form action="/tab/<%=dinner.id%>/total" method="GET">
-  <% @dish.each do |d|%>
-<form>
-  <div>
-    <input type="checkbox" id="dish" name="dish_id" value="d.id">
-    <label for="dish"><%= d.id%> <%= d.dish_name%> $<%=d.dish_price%></label>
-  </div>
-</form>
-  <% end %>
-<button type="submit">submit</button>
-</form>
-</div>
-<br><br>
+   
+ <% end %>
+ <input type = "submit" value = "Submit" class = "btn btn-primary">
+ </div>

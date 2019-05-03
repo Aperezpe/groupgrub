@@ -639,6 +639,7 @@ end
 post "/tab/:id/order" do
 
 
+
 end
 
 
@@ -647,3 +648,21 @@ post "/tab/:id/total" do
 
 
 end
+
+get "/events/rest/:r_id" do 
+
+	if params[:r_id]
+	 erb :menu
+	
+		
+	
+	
+	else
+		redirect "/events"
+
+	
+		
+	end
+
+end
+
