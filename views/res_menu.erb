@@ -1,10 +1,21 @@
 <div class="container">
+<h1>Menu info for <%=current_res_user.rest_name %> </h1><br>
   <form action= "/res_menu/add" method= "POST">
-    <br>
-    Add dish name:       <input type= "text" name= "Dish Name" placeholder="dish_name"/>
-    <br>
-    add dish price:       <input type= "float" name= "Dish price" placeholder="dish_price"/>
+        <input type="hidden" name="restaurant_id" value ="<%=current_res_user.id%>"/>
 
+    <br>
+    Add dish name:       <input type= "text" name= "dish_name" placeholder="dish name"/>
+    <br>
+    add dish price: $      <input type= "float" name= "dish_price" placeholder="dish price"/>
+    <br>
+    <input type= "submit" value="Submit"/>
+  </form>
+
+  <form action= "/res_menu/delete" method= "POST">
+      
+    <br>
+    delete dish :       <input type= "integer" name= "dish_id" placeholder="dish id"/>
+    <br>
     <input type= "submit" value="Submit"/>
   </form>
 </div>
@@ -22,8 +33,8 @@
   }
 </style>
 
-
-
+<br>
+<br>
 
 
 
@@ -34,7 +45,7 @@
 <div class="container">
   <% @dish.each do |d|%>
 
-<p><%= d.restaurant_id%> <%= d.dish_name%>    $<%=d.dish_price%></p>
+<p><%= d.id%> <%= d.dish_name%>    $<%=d.dish_price%></p>
   <% end %>
 
 

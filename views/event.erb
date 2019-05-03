@@ -22,9 +22,10 @@
 
 <!--show menu of the restauant to menu -->
   <% if @dinner.restaurant_id %>
-      <form action="/events/rest/:r_id" method="GET">
+      <form action="/events/<%=@dinner.id%>/:r_id" method="GET">
+      <input type="hidden" name="id" value ="<%=@dinner.id%>"/>
       <input type="hidden" name="r_id" value ="<%=@dinner.restaurant_id%>"/>
-      <button type="submit" value= "<%=@dinner.restaurant_id%>" formaction= "/events/rest/<%=@dinner.restaurant_id%>/menu" class="btn btn-primary"> menu</button>
+      <button type="submit" value= "<%=@dinner.restaurant_id%>" formaction= "/events/<%=@dinner.id%>/<%=@dinner.restaurant_id%>/menu" class="btn btn-primary"> menu</button>
       </form>
   <% end %>
 
