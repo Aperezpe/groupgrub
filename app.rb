@@ -30,7 +30,7 @@ end
 
 # User Dashboard
 get "/dashboard" do
-
+	authenticate!
 	erb :dashboard
 end
 
@@ -357,8 +357,6 @@ post "/events/:id/newFriend" do
 					flash[:error] = "You can't invite someone that is not your friend"
 					redirect "/events/#{e_id}"
 				end
-
-				
 			end
 		end
 	else
@@ -372,7 +370,6 @@ post "/events/:id/response" do
 	authenticate!
 	req = Requests.first(event_id: params[:id], requested_user_id: current_user.id)
 	e = Event.first(id: params[:id])
-
 
 
 	## If such request exist
@@ -399,13 +396,6 @@ post "/events/:id/response" do
 			flash[:error] = "You have rejected the event"
 			redirect "/dashboard"
 		end
-
-		
-
-		
-
-		
-		
 	end
 
 end
@@ -580,14 +570,14 @@ post "/events/:id/create_Poll" do
   end
 end
 
+
+
+
 # To start the poll - just sets it to true
 post "/events/:id/startPoll"do
   authenticate!
 
   if params[:id]
-
-
-
 
     rest = Poll.first(event_id: params[:id])
 
@@ -700,8 +690,6 @@ end
 get "/events/:id/menu/:res" do
   authenticate!
 
-
-
 	@dinner = Event.first(id: params[:id])
   @res = Restaurant.first(id: params[:res])
   erb :selectDish
@@ -760,6 +748,7 @@ end
 
 #View Order
 get "/events/:id/order/:res" do
+	authenticate!
 	@dinner = Event.first(id: params[:id])
 	@res = Restaurant.first(id: params[:res])
   erb :order
