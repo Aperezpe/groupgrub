@@ -22,14 +22,47 @@
 
 <!--show menu of the restauant to menu -->
   <% if @dinner.restaurant_id %>
-      <form action="/events/rest/:r_id" method="GET">
-      <input type="hidden" name="r_id" value ="<%=@dinner.restaurant_id%>"/>
-      <button type="submit" value= "<%=@dinner.restaurant_id%>" formaction= "/events/rest/<%=@dinner.restaurant_id%>/menu" class="btn btn-primary"> menu</button>
+    <%id =@dinner.id  %>
+    <% res = @dinner.restaurant_id %>
+      <form action="/events/<%=id %>/menu/<%=res %>" method="GET">
+      <button type="submit" class="btn btn-primary"> Menu</button>
       </form>
-  <% end %>
+  <% end %><br>
 
 
   <!--
+
+  <!--show users order -->
+  <% if @dinner.restaurant_id %>
+
+    <%if Tab.first(user_id: current_user.id, event_id:@dinner.id ) %>
+      <%id =@dinner.id%>
+      <% res = @dinner.restaurant_id %>
+      <form action="/events/<%=id %>/order/<%=res %>" method="GET">
+        <button type="submit" class="btn btn-primary"> My Order</button>
+      </form>
+
+      <%end %>
+  <% end %><br>
+
+
+  <!-- View total payment--->
+  <%if @dinner. restaurant_id and @dinner.user_id == current_user.id%>
+    <%id =@dinner.id%>
+    <% res = @dinner.restaurant_id %>
+    <form action="/events/<%=id%>/total/<%=res%>" method="GET">
+      <input type="submit"  value="See All Orders" class="btn btn-primary" formaction="/events/<%=id%>/total/<%=res%>" formmethod="GET"></input>
+    </form><br>
+  <%end%>
+
+
+
+
+
+  <!--
+
+
+
 //
 //
 //
@@ -112,7 +145,7 @@
 
     <% if current_user.id == @dinner.user_id %>
 
-      <% if @dinner.restaurant_id == nil%>
+      <% if @dinner.restaurant_id == nil %>
       <form action= "/events/<%=@dinner.id%>/addRes" method="POST">
         <br><label for="rest_name">Select restaurant:</label>
         <input type="text" name="rest_name" placeholder="Name" required>
@@ -133,7 +166,7 @@
       //
           Create Poll  -->
 
-  <% if rest_name == "undecided" and @dinner.user_id == current_user.id and (Group.all(event_id: @dinner.id).count + 1 >= 3) %>
+  <% if rest_name == "undecided" and @dinner.user_id == current_user.id and Group.all(event_id: @dinner.id).count >= 3 %>
 
     <%if Poll.first(event_id: @dinner.id, start:true) %>
           <%else %>
@@ -145,14 +178,14 @@
           <%end %>
 
       <%else %>
-        <%if @dinner.user_id == current_user.id %>
+        <%if @dinner.user_id == current_user.id and rest_name == "undecided"%>
         <font color="red">Polls require at least 3 attendies</font>
         <%end %>
   <%end %>
 
 
 </div>
-    <% if rest_name == "undecided" and Poll.all(event_id: @dinner.id).count >0 and @dinner.user_id == current_user.id %>
+    <% if rest_name == "undecided" and Poll.all(event_id: @dinner.id).count > 0 and @dinner.user_id == current_user.id %>
     <div class="col-md-4">
       <% if Poll.first(event_id: @dinner.id, start: false)%>
       <h5>Current candidates</h5>
@@ -165,14 +198,14 @@
       <% end %>
       <% end %>
 
-      <%if Poll.all(event_id: @dinner.id, start: false).count > (Group.all(event_id: @dinner.id).count - 1)%>
+      <%if Poll.all(event_id: @dinner.id, start: false).count > (Group.all(event_id: @dinner.id).count - 2)%>
 
           <form action= "/events/<%=@dinner.id%>/startPoll" method="POST">
             <input type= "submit" value="Start the Poll!" class="btn btn-primary"/>
           </form>
 
         <%else %>
-        <%if Poll.all(event_id: @dinner.id, start: true).count > (Group.all(event_id: @dinner.id).count - 1) %>
+        <%if Poll.all(event_id: @dinner.id, start: true).count > (Group.all(event_id: @dinner.id).count - 2) %>
           <% if Vote.first(user_id: current_user.id, event_id: @dinner.id) == nil %>
             <h5>Vote for restaurant</h5>
           <form action= "/events/<%=@dinner.id%>/vote" method="POST">
@@ -211,6 +244,10 @@
               <%end %>
           <%end %>
           <br><h5>Winner: <%=name %></h5>
+            <form action= "/events/<%=@dinner.id%>/addRes" method="POST">
+              <input type="hidden" name="rest_name" value="<%=name%>" required>
+              <input type= "submit" value="Select <%=name %>" class="btn btn-primary"/>
+            </form>
           <%end%>
 
 
@@ -237,7 +274,7 @@
     Event member to see Poll  -->
 
 <% if Group.first(event_id: @dinner.id, friend_id: current_user.id)%>
-    <%if Poll.all(event_id: @dinner.id, start: true).count > (Group.all(event_id: @dinner.id).count - 1) %>
+    <%if Poll.all(event_id: @dinner.id, start: true).count > (Group.all(event_id: @dinner.id).count - 2) %>
   <div class="col-md-4"><br>
 
       <% if Vote.first(user_id: current_user.id, event_id: @dinner.id) == nil %>
@@ -279,6 +316,7 @@
         <%end %>
       <%end %>
       <br><h5>Winner: <%=name %></h5>
+
     <%end%>
     <%end %>
 
@@ -333,7 +371,7 @@
 
 
         <%s = User.get(u.following_user_id)%>
-        <%string +="ID: #{u.id}, Name: #{s.name}, Email: #{s.email}"%>
+        <%string +="ID: #{s.id}, Name: #{s.name}, Email: #{s.email}"%>
         <p><%=string%></p>
 
       <%end%>

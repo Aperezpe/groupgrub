@@ -1,0 +1,18 @@
+<div class="container"><br><br>
+  <h1>Select item form <%=@res.rest_name %></h1>
+
+  <%id =@dinner.id  %>
+  <% res = @res.id %>
+  <form action= "/events/<%=id %>/addItem/<%=res %>" method= "POST">
+  <% Dish.all(restaurant_id: @res.id).each do |d| %>
+
+      <input type="radio"  name="dishID" value='<%= d.id %>'> <%=d.dish_name%></label>
+
+    <p><%=d.dish_des%></p>
+    <b><p>$<%=d.dish_price%></p></b>
+
+  <% end %>
+  <input type="submit" value="Submit" formaction="/events/<%=id %>/addItem/<%=res %>" formmethod="POST" class="btn btn-primary">
+  </form>
+
+</div>

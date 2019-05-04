@@ -68,24 +68,26 @@
     <%u = User.first(id: r.user_id) %>
     <%rest_name = "undecided" %>
     <%if e.restaurant_id%>
-        <% name = Restaurant.first(id: e.restaurant_id)%>
-        <%if name %>
-          <% rest_name = name.rest_name%>
-        <%end %>
-      <%end%>
+      <% name = Restaurant.first(id: e.restaurant_id)%>
+      <%if name %>
+        <% rest_name = name.rest_name%>
+      <%end %>
+    <%end%>
     <p><%=e.id%> - <%=e.title%> - Created by: <%=u.name%> -  Restaurant: <%=rest_name %> - <%=e.event_date.strftime("%B %d, %Y")%></p>
     <div>
       <form action= "/events/<%=r.event_id%>/response" method= "POST">
 
-      <input type="radio" name="radio-choice"  value="yes" /> Going <br>
+        <input type="radio" name="radio-choice"  value="yes" /> Going <br>
 
-      <input type="radio" name="radio-choice"  value="no" /> Not Going<br>
-      <input type="submit" value="Submit" class="btn btn-primary" formaction="/events/<%=r.event_id%>/response" formmethod="POST">
+        <input type="radio" name="radio-choice"  value="no" /> Not Going<br>
+        <input type="submit" value="Submit" class="btn btn-primary" formaction="/events/<%=r.event_id%>/response" formmethod="POST">
       </form>
 
     </div>
 
-  <br><br>
+    <br><br>
+
+
 <%end%>
 
 

@@ -2,7 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f9c1fc75-1e7f-44a0-a1b0-6207b522951d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/views/authentication.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/emenu.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/order.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/selectDish.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/total.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.db" beforeDir="false" afterPath="$PROJECT_DIR$/app.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authentication.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models.rb" beforeDir="false" afterPath="$PROJECT_DIR$/models.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/event.erb" beforeDir="false" afterPath="$PROJECT_DIR$/views/event.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/friends.erb" beforeDir="false" afterPath="$PROJECT_DIR$/views/friends.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/navigation.erb" beforeDir="false" afterPath="$PROJECT_DIR$/views/navigation.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/requests.erb" beforeDir="false" afterPath="$PROJECT_DIR$/views/requests.erb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,85 +48,89 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="634">
-              <caret line="647" lean-forward="true" selection-start-line="647" selection-end-line="647" />
+            <state relative-caret-position="283">
+              <caret line="548" column="97" selection-start-line="548" selection-start-column="97" selection-end-line="548" selection-end-column="97" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/account.erb">
+        <entry file="file://$PROJECT_DIR$/views/emenu.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="5" column="35" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="35" />
+            <state relative-caret-position="195">
+              <caret line="26" selection-start-line="26" selection-end-line="26" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/account_edit.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="8" lean-forward="true" selection-start-column="8" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/res_account_edit.erb">
+        <entry file="file://$PROJECT_DIR$/views/selectDish.erb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="247">
-              <caret line="13" column="6" lean-forward="true" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
+              <caret line="16" selection-start-line="16" selection-end-line="16" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/menu.erb">
+        <entry file="file://$PROJECT_DIR$/views/order.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="5" column="7" lean-forward="true" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+            <state relative-caret-position="152">
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/spec/modeling.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="699">
+              <caret line="113" lean-forward="true" selection-start-line="113" selection-end-line="113" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/views/navigation.erb">
+        <entry file="file://$PROJECT_DIR$/views/event.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="529">
-              <caret line="41" column="15" lean-forward="true" selection-start-line="41" selection-start-column="15" selection-end-line="41" selection-end-column="15" />
+            <state relative-caret-position="330">
+              <caret line="290" column="21" lean-forward="true" selection-start-line="290" selection-start-column="21" selection-end-line="290" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/restaurants.erb">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/views/total.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="27" column="50" selection-start-line="27" selection-start-column="50" selection-end-line="27" selection-end-column="50" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/friends.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="83">
-              <caret line="6" lean-forward="true" selection-start-line="5" selection-start-column="55" selection-end-line="6" />
+            <state relative-caret-position="152">
+              <caret line="8" column="9" lean-forward="true" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/event.erb">
+        <entry file="file://$PROJECT_DIR$/models.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="367">
-              <caret line="158" column="53" lean-forward="true" selection-start-line="158" selection-start-column="51" selection-end-line="158" selection-end-column="53" />
+            <state relative-caret-position="446">
+              <caret line="144" column="22" selection-start-line="144" selection-start-column="22" selection-end-line="144" selection-end-column="22" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/authentication.rb">
+        <entry file="file://$PROJECT_DIR$/views/requests.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="417">
-              <caret line="97" column="7" selection-start-line="97" selection-start-column="7" selection-end-line="97" selection-end-column="7" />
+            <state relative-caret-position="386">
+              <caret line="79" column="72" lean-forward="true" selection-start-line="79" selection-start-column="72" selection-end-line="79" selection-end-column="72" />
             </state>
           </provider>
         </entry>
@@ -134,9 +151,19 @@
       <find>2</find>
       <find>date</find>
       <find>event</find>
-      <find>pick another</find>
       <find>Delete</find>
       <find>invite</find>
+      <find>ivi</find>
+      <find>cancel in</find>
+      <find>select</find>
+      <find>polls re</find>
+      <find>TOTAL COST</find>
+      <find>send re</find>
+      <find>pick</find>
+      <find>pick another</find>
+      <find>winner</find>
+      <find>font</find>
+      <find>Total</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -144,7 +171,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Res_Plus_Events" />
+        <entry key="$PROJECT_DIR$" value="Plus_3" />
       </map>
     </option>
   </component>
@@ -168,17 +195,21 @@
         <option value="$PROJECT_DIR$/views/authentication/login.erb" />
         <option value="$PROJECT_DIR$/views/account.erb" />
         <option value="$PROJECT_DIR$/views/events.erb" />
-        <option value="$PROJECT_DIR$/views/requests.erb" />
-        <option value="$PROJECT_DIR$/models.rb" />
         <option value="$PROJECT_DIR$/spec/modeling.rb" />
-        <option value="$PROJECT_DIR$/views/event.erb" />
-        <option value="$PROJECT_DIR$/views/friends.erb" />
         <option value="$PROJECT_DIR$/views/account_edit.erb" />
         <option value="$PROJECT_DIR$/views/res_account_edit.erb" />
         <option value="$PROJECT_DIR$/views/menu.erb" />
         <option value="$PROJECT_DIR$/authentication.rb" />
-        <option value="$PROJECT_DIR$/app.rb" />
         <option value="$PROJECT_DIR$/views/navigation.erb" />
+        <option value="$PROJECT_DIR$/views/friends.erb" />
+        <option value="$PROJECT_DIR$/models.rb" />
+        <option value="$PROJECT_DIR$/views/selectDish.erb" />
+        <option value="$PROJECT_DIR$/views/order.erb" />
+        <option value="$PROJECT_DIR$/views/requests.erb" />
+        <option value="$PROJECT_DIR$/views/emenu.erb" />
+        <option value="$PROJECT_DIR$/views/total.erb" />
+        <option value="$PROJECT_DIR$/app.rb" />
+        <option value="$PROJECT_DIR$/views/event.erb" />
       </list>
     </option>
   </component>
@@ -225,6 +256,11 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/views" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -250,7 +286,7 @@
       <updated>1555490006213</updated>
       <workItem from="1555490009979" duration="134132000" />
       <workItem from="1556314632314" duration="4000" />
-      <workItem from="1556314913809" duration="8494000" />
+      <workItem from="1556314913809" duration="28766000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed a bug with request friend checkbox, where both boxes could be checked at the same time">
       <created>1555712581585</created>
@@ -378,11 +414,18 @@
       <option name="project" value="LOCAL" />
       <updated>1556659212342</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="rest side - ready for menu">
+      <created>1556661727789</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1556661727789</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="142630000" />
+    <option name="totallyTimeSpent" value="164775000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -398,9 +441,9 @@
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" sideWeight="0.50076103" side_tool="true" weight="0.24969475" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49923897" visible="true" weight="0.2759463" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49923897" visible="true" weight="0.14468865" />
       <window_info id="Structure" order="2" sideWeight="0.50076103" side_tool="true" weight="0.24969475" />
-      <window_info anchor="bottom" id="Terminal" order="0" sideWeight="0.498779" visible="true" weight="0.2" />
+      <window_info anchor="bottom" id="Terminal" order="0" sideWeight="0.4981685" visible="true" weight="0.2" />
       <window_info anchor="bottom" id="Database Changes" order="1" weight="0.32959184" />
       <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.501221" side_tool="true" weight="0.2" />
       <window_info anchor="bottom" id="Version Control" order="3" sideWeight="0.4993895" weight="0.32959184" />
@@ -473,7 +516,8 @@
     <MESSAGE value="Small Poll fix and now has winner button" />
     <MESSAGE value="Remove Friend from friend page now deletes their friend from all events, with their if any votes" />
     <MESSAGE value="Bug fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bug fix" />
+    <MESSAGE value="rest side - ready for menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="rest side - ready for menu" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/views/authentication/sign_up_fail.erb" />
@@ -535,13 +579,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/res_account.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="17" lean-forward="true" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/authentication/login.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="566">
@@ -573,31 +610,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2147">
-          <caret line="113" column="34" selection-start-line="113" selection-start-column="34" selection-end-line="113" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/spec/modeling.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1330">
-          <caret line="70" column="47" selection-start-line="70" selection-start-column="47" selection-end-line="70" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/events.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="855">
-          <caret line="45" column="24" selection-start-line="36" selection-start-column="16" selection-end-line="45" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/requests.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1558">
-          <caret line="82" column="129" selection-start-line="82" selection-start-column="66" selection-end-line="82" selection-end-column="129" />
+        <state relative-caret-position="699">
+          <caret line="113" lean-forward="true" selection-start-line="113" selection-end-line="113" />
         </state>
       </provider>
     </entry>
@@ -612,20 +628,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
           <caret line="5" column="35" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/friends.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="83">
-          <caret line="6" lean-forward="true" selection-start-line="5" selection-start-column="55" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/account_edit.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="8" lean-forward="true" selection-start-column="8" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -646,31 +648,102 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/event.erb">
+    <entry file="file://$PROJECT_DIR$/views/navigation.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="158" column="53" lean-forward="true" selection-start-line="158" selection-start-column="51" selection-end-line="158" selection-end-column="53" />
+        <state relative-caret-position="517">
+          <caret line="41" column="15" lean-forward="true" selection-start-line="41" selection-start-column="15" selection-end-line="41" selection-end-column="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/authentication.rb">
+    <entry file="file://$PROJECT_DIR$/views/account_edit.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="97" column="7" selection-start-line="97" selection-start-column="7" selection-end-line="97" selection-end-column="7" />
+        <state relative-caret-position="19">
+          <caret line="1" column="23" lean-forward="true" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/res_account.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" selection-start-line="5" selection-end-line="14" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/authentication.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="547">
+          <caret line="134" column="4" lean-forward="true" selection-start-line="134" selection-start-column="4" selection-end-line="134" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/friends.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="9" lean-forward="true" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/order.erb" />
+    <entry file="file://$PROJECT_DIR$/views/events.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="45" column="24" selection-start-line="36" selection-start-column="16" selection-end-line="45" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/requests.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="386">
+          <caret line="79" column="72" lean-forward="true" selection-start-line="79" selection-start-column="72" selection-end-line="79" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="446">
+          <caret line="144" column="22" selection-start-line="144" selection-start-column="22" selection-end-line="144" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/selectDish.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/order.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/emenu.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/total.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="27" column="50" selection-start-line="27" selection-start-column="50" selection-end-line="27" selection-end-column="50" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="634">
-          <caret line="647" lean-forward="true" selection-start-line="647" selection-end-line="647" />
+        <state relative-caret-position="283">
+          <caret line="548" column="97" selection-start-line="548" selection-start-column="97" selection-end-line="548" selection-end-column="97" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/navigation.erb">
+    <entry file="file://$PROJECT_DIR$/views/event.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="41" column="15" lean-forward="true" selection-start-line="41" selection-start-column="15" selection-end-line="41" selection-end-column="15" />
+        <state relative-caret-position="330">
+          <caret line="290" column="21" lean-forward="true" selection-start-line="290" selection-start-column="21" selection-end-line="290" selection-end-column="21" />
         </state>
       </provider>
     </entry>

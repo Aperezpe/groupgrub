@@ -140,12 +140,11 @@ end
 
 class Tab
     include DataMapper::Resource
-    property :id, Serial # user submitting to tab
-    property :dish_id, Integer # dish or beverage added
-    property :budget, Integer # budget set by HOST and only host
-    property :cost, Integer # current cost of tab
+    property :id, Serial
     property :user_id, Integer
-    property :isOverBudget, Boolean, :default => false
+    property :event_id, Integer
+    property :dish_id, Integer
+    property :created_at, DateTime
     #functions
 end
 

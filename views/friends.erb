@@ -64,7 +64,7 @@
     <%if u.are_friends == true%>
 
       <%s = User.get(u.following_user_id)%>
-      <%string +="ID: #{u.id}, Name: #{s.name}, Email: #{s.email}"%>
+      <%string +="ID: #{s.id}, Name: #{s.name}, Email: #{s.email}"%>
       <ul><li><%=string%></li></ul>
 
     <%end%>

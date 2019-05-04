@@ -1,6 +1,6 @@
 require "sinatra"
 require 'sinatra/flash'
-require_relative "authentication.rb"
+require_relative "views/authentication.rb"
 
 #the following urls are included in authentication.rb
 # GET /login
@@ -332,7 +332,7 @@ post "/events/:id/newFriend" do
 			redirect "/events/#{e_id}"
 		else
 			if req
-				flash[:error] = "You already ivited #{u.email}"
+				flash[:error] = "You already invited #{u.email}"
 				redirect "/events/#{e_id}"
 			else
 				#Send request
@@ -576,6 +576,7 @@ end
 
 # To start the poll - just sets it to true
 post "/events/:id/startPoll"do
+  authenticate!
 
   if params[:id]
 
@@ -607,6 +608,7 @@ end
 
 # Placing vote
 post "/events/:id/vote" do
+  authenticate!
 
   if params[:id] and params[:vote]
 
@@ -630,6 +632,116 @@ post "/events/:id/vote" do
   else
     redirect "/"
   end
+end
+
+
+
+# On rest side see menu and option to add new items
+get "/emenu" do
+  res_authenticate!
+  erb :emenu
+end
+
+# rest side add new items to menu
+post "/emenu/:id/addItem" do
+  res_authenticate!
+
+  if params[:id]
+    d= Dish.first(restaurant_id: params[:id], dish_name: params[:name])
+    if d
+      flash[:error] = "#{params[:name]} is already in your menu"
+      redirect "/emenu"
+    else
+      dish = Dish.new
+      dish.restaurant_id = params[:id]
+      dish.dish_name = params[:name]
+      dish.dish_des = params[:des]
+      dish.dish_price = params[:price]
+      dish.save
+      flash[:success] = "#{params[:name]} was added to your menu"
+      redirect "/emenu"
+    end
+
+  end
+
+end
+
+
+
+# rest side delete item
+post "/emenu/:id/delete" do
+	res_authenticate!
+
+	if params[:id]
+		d= Dish.first(restaurant_id: params[:id], dish_name: params[:name])
+		if d
+      d.destroy!
+			flash[:success] = "#{params[:name]} was deleted from your menu"
+			redirect "/emenu"
+
+
+		else
+			flash[:error] = "#{params[:name]} was not found in your menu"
+			redirect "/emenu"
+		end
+
+	end
+
+end
+
+
+#User select item from rest's menu
+get "/events/:id/menu/:res" do
+  authenticate!
+
+
+
+	@dinner = Event.first(id: params[:id])
+  @res = Restaurant.first(id: params[:res])
+  erb :selectDish
+
+end
+
+
+#User selection is saved
+post "/events/:id/addItem/:res" do
+  authenticate!
+
+
+  if params[:id] and params[:res]
+
+    order = Tab.first(event_id: params[:id], user_id: current_user.id)
+
+    if order
+      flash[:error] = "You have already placed your order"
+      redirect "/events/#{params[:id]}"
+    else
+      t = Tab.new
+      t.event_id = params[:id]
+      t.user_id = current_user.id
+      t.dish_id = params[:dishID]
+      t.save
+      flash[:success] = "Your order has been placed"
+      redirect "/events/#{params[:id]}"
+
+    end
+  end
+end
+
+#View Order
+get "/events/:id/order/:res" do
+	@dinner = Event.first(id: params[:id])
+	@res = Restaurant.first(id: params[:res])
+  erb :order
+end
+
+
+#View total cost
+get "/events/:id/total/:res" do
+	authenticate!
+	@dinner = Event.first(id: params[:id])
+  erb :total
+
 end
 
 
