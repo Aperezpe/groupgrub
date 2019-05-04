@@ -4,7 +4,7 @@
   <form method="Post" action="/emenu/<%=current_res_user.id %>/addItem">
    Name: <input type= "text" name= "name" placeholder=" Dish Name" required>
    Description: <input type= "text" name= "des" placeholder="Description" required>
-   Price: <input type= "text" name= "price" placeholder="Price" required>
+   Price: <input type= "number" name= "price" placeholder="Price" step="0.01"required>
 
     <input type= "submit" value="Add new item" class="btn btn-primary"/>
   </form>

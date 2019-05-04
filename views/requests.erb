@@ -73,7 +73,7 @@
         <% rest_name = name.rest_name%>
       <%end %>
     <%end%>
-    <p><%=e.id%> - <%=e.title%> - Created by: <%=u.name%> -  Restaurant: <%=rest_name %> - <%=e.event_date.strftime("%B %d, %Y")%></p>
+    <p><%=e.id%> - <%=e.title%> - Created by: <%=u.name%> -  Restaurant: <%=rest_name %> - <%=e.event_date.strftime("%B %d, %Y - %I:%M %p")%></p>
     <div>
       <form action= "/events/<%=r.event_id%>/response" method= "POST">
 

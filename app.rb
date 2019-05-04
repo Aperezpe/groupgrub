@@ -293,11 +293,14 @@ end
 post "/events/new" do
 	authenticate!
 
+
+  if params["title"] and params["d_date"] and params["d_time"]
+
 	e = Event.new
 	e.user_id = current_user.id
 	e.restaurant_id = nil
 	e.title = params["title"]
-	e.event_date = params["d_date"]
+	e.event_date = params["d_date"]+ "T" + params["d_time"]
 
 	if e.save
 		g = Group.new
@@ -310,7 +313,10 @@ post "/events/new" do
 	else
 		flash[:error] = "There was an error creating the event, please try again"
 		redirect "/events"
-	end
+  end
+  else
+		redirect "/events"
+  end
 
 end
 

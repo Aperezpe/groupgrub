@@ -9,7 +9,7 @@
   <br><br>
 
     <h1><%=@dinner.id%> - <%=@dinner.title%></h1>
-    <h3><%=@dinner.event_date.strftime("%B %d, %Y")%></h3>
+    <h3><%=@dinner.event_date.strftime("%B %d, %Y &nbsp;&nbsp;&nbsp;&nbsp; %I:%M %p")%></h3>
   <%rest_name = "undecided" %>
   <% if @dinner.restaurant_id %>
     <% name = Restaurant.first(id: @dinner.restaurant_id)%>
@@ -273,7 +273,7 @@
 //
     Event member to see Poll  -->
 
-<% if Group.first(event_id: @dinner.id, friend_id: current_user.id)%>
+<% if rest_name == "undecided" and Group.first(event_id: @dinner.id, friend_id: current_user.id)%>
     <%if Poll.all(event_id: @dinner.id, start: true).count > (Group.all(event_id: @dinner.id).count - 2) %>
   <div class="col-md-4"><br>
 
