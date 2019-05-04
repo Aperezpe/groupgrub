@@ -734,6 +734,30 @@ post "/events/:id/addItem/:res" do
   end
 end
 
+
+
+#User deletes their order
+post "/events/:id/deleteOrder/:res" do
+	authenticate!
+
+
+	if params[:id] and params[:res]
+
+		order = Tab.first(event_id: params[:id], user_id: current_user.id, dish_id: params[:res])
+
+		if order
+      order.destroy!
+			flash[:success] = "Your order was deleted"
+			redirect "/events/#{params[:id]}"
+		else
+			flash[:error] = "Your order was not found"
+			redirect "/events/#{params[:id]}"
+
+		end
+	end
+end
+
+
 #View Order
 get "/events/:id/order/:res" do
 	@dinner = Event.first(id: params[:id])
@@ -750,18 +774,3 @@ get "/events/:id/total/:res" do
 
 end
 
-
-
-
-# Set orders
-post "/tab/:id/order" do
-
-
-end
-
-
-# Total
-post "/tab/:id/total" do
-
-
-end
