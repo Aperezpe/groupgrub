@@ -16,7 +16,7 @@ class User
     property :name, String
     property :email, String
     property :password, String
-    property :phone, Integer
+    property :phone, String
     property :profile_image_url, Text
     property :created_at, DateTime
 
@@ -110,7 +110,7 @@ class Restaurant
     property :password, String
     property :open_time, String
     property :close_time, String
-    property :rest_phone, Integer
+    property :rest_phone, String
     property :rest_address, String
     property :created_at, DateTime
 

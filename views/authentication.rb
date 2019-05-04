@@ -51,11 +51,13 @@ end
 
 
 post "/register" do
+
 	name = params[:name]
 	email = params[:email]
 	password = params[:password]
 	phone = params[:phone]
   checkbox = params[:checkbox]
+
 
 	if name && email && password && phone && checkbox
     if checkbox == "individual"
