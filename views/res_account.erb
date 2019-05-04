@@ -6,8 +6,8 @@
   <p> Email: <%=current_res_user.email%></p>
   <p> Address: <%=current_res_user.rest_address%></p>
   <p> Phone: <%=current_res_user.rest_phone%></p>
-  <p> Open at: <%=current_res_user.open_time%></p>
-  <p> Close at: <%=current_res_user.close_time%></p>
+  <p> Open at: <%=(current_res_user.open_time).strftime("%I:%M %p")%></p>
+  <p> Close at: <%=(current_res_user.close_time).strftime("%I:%M %p")%></p>
   <p> Password: <%=current_res_user.password%></p>
 
   <form method="Get" action="/res_account/edit">

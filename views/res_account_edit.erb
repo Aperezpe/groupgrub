@@ -6,8 +6,8 @@
     <p>Email: <input type="email" name="email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" value=<%=current_res_user.email%>></p>
     <p>Address: <input type="text" name="address"  value=<%=current_res_user.rest_address%>></p>
     <p>Phone: <input type="integer" name="phone" value=<%=current_res_user.rest_phone%>></p>
-    <p>Open at: <input type="text" name="open" value=<%=current_res_user.open_time%>></p>
-    <p>Close at: <input type="text" name="close" value=<%=current_res_user.close_time%>></p>
+    <p>Open at: <input type="time" name="open" value=<%=(current_res_user.open_time).strftime("%I:%M %p")%>></p>
+    <p>Close at: <input type="time" name="close" value=<%=(current_res_user.close_time).strftime("%I:%M %p")%>></p>
     <p>Password: <input type="password" name="password"  value=<%=current_res_user.password%>></p>
     <button type="submit">Submit Changes</button>
   </form>

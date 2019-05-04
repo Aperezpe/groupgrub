@@ -108,8 +108,8 @@ class Restaurant
     property :rest_name, String
     property :email, String
     property :password, String
-    property :open_time, String
-    property :close_time, String
+    property :open_time, DateTime
+    property :close_time, DateTime
     property :rest_phone, String
     property :rest_address, String
     property :created_at, DateTime
