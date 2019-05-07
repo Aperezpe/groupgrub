@@ -421,7 +421,7 @@
     
     <div class="comment_button">
       <form action="/comment/<%=@dinner.id%>/new" method="post">
-        <textarea placeholder="Write a comment..." name="comment"></textarea>
+        <textarea placeholder="Write a comment..." name="comment" required></textarea>
         <input type="submit" value="Submit" class="button comment_submit">
       </form>
     </div>
