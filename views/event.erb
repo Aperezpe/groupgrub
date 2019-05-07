@@ -1,4 +1,6 @@
-
+<head>
+  <link rel="stylesheet" type="text/css" href="<%= url('/event_style.css') %>">
+</head>
 
 <!--
 //
@@ -406,5 +408,54 @@
 
 
 
+<%# Only show Comment Section if Current_User is participat of event%>
+<%visitor = Group.first(friend_id: current_user.id)%>
+<%if current_user.id == @dinner.user_id or visitor%>
+<%# COMMENTS SECITON %>
+  <%comments = Comment.all(event_id: @dinner.id)%>
+  <div class="container">
+    <h2>Comments</h2>
 
+    <%if comments%>
+      <div id="comment-section">
+        <h3><%=comments.count%> Comments</h3>
+
+        <%comments.each do |c|%>
+          <%u=User.first(id: c.user_id)%>
+          <div class="comment-box">
+            <table>
+              <tr>
+                <td class="user-img">
+                  <img src="https://avatars.servers.getgo.com/2205256774854474505_medium.jpg">
+                </td>
+                <td>
+                  <div>
+                    <b><%=u.name%></b> - <span><%=c.created_at.strftime("%B %d, %Y, %H:%M")%></span>
+                    <p class="comments" style="margin-top:10px;"><%=c.comment%></p>
+
+                    <%if current_user.id == c.user_id%>
+                      <form action="/comment/<%=c.id%>/destroy" method="post">
+                        <input type="submit" value="Delete Comment" class="delete_submit">
+                      </form>
+                    <%end%>
+                  </div>
+                </td>
+              </tr>
+            </table>
+
+          </div>
+        <%end%>
+
+      </div>
+    <%end%>
+
+    <div class="comment_button">
+      <form action="/comment/<%=@dinner.id%>/new" method="post">
+        <textarea placeholder="Write a comment..." name="comment" required></textarea>
+        <input type="submit" value="Submit" class="button comment_submit">
+      </form>
+    </div>
+  </div>
+
+<%end%>
 

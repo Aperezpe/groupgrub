@@ -763,3 +763,55 @@ get "/events/:id/total/:res" do
 
 end
 
+
+
+########COMMENTS#######
+
+#CREATE
+post "/comment/:id/new" do
+	authenticate!
+
+	dinner = Event.get(params[:id])
+
+	#If dinner exists and a comment is fount in parameters, create new comment
+	if dinner and params["comment"]
+		new_com = Comment.new
+		new_com.comment = params["comment"]
+		new_com.user_id = current_user.id
+		new_com.event_id = params[:id]
+		if new_com.save
+			flash[:success] = "Comment posted!"
+			redirect "/events/#{params[:id]}"
+		else
+			flash[:error] = "There was an error posting your comment, please try again!"
+			redirect "/events/#{params[:id]}"
+		end
+	else
+		flash[:error] = "Dinner or comment not found!"
+		redirect "/events/#{params[:id]}"
+
+	end
+end
+#READ
+#UPDATE
+#DESTROY
+
+post "/comment/:id/destroy" do
+
+	com = Comment.first(id: params[:id])
+	e_id = Event.first(id: com.event_id)
+
+	puts "current user ID: #{current_user.id}"
+	puts "user that put the comment ID: #{current_user.id}"
+	puts com.comment
+
+	if current_user.id.to_i == com.user_id.to_i
+		com.destroy
+		flash[:success] = "Comment deleted!"
+		redirect "/events/#{e_id.id}"
+	else
+		flash[:error] = "You can't delete someone else's comment!"
+		redirect "/events/#{e_id.id}"
+	end
+
+end

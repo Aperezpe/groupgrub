@@ -1,0 +1,104 @@
+h1 h2 h4 h5 h6 textarea li{
+    font-family:sans-serif;
+    font-size:1.0em;
+}
+h1{
+    font-size:2.4em;
+    font-weight: 700;
+}
+
+td{
+    padding: 0 5px;
+}
+
+td.user-img{
+    vertical-align: 0%;
+}
+
+img[src="https://avatars.servers.getgo.com/2205256774854474505_medium.jpg"]{
+    float: left;
+    height: 60px;
+    width: 60px;
+}
+
+ul{
+    list-style: none;
+    padding-inline-start: 0;
+}
+
+li {
+    font-weight: 400;
+}
+
+h3{
+    font-size:1.2em;
+}
+
+textarea{
+    height: 90px;
+    width:100%;
+}
+.comments{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.button{
+    background-color: none; /* Green */
+    border: none;
+    color: none;
+    padding: 5px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+.comment_button{
+    width:60%;
+    margin-bottom: 100px;
+}
+.comment_submit{
+    background-color:none;
+    color: black;
+    border: 2px solid #008CBA;
+    float:right;
+    border-radius: 10px;
+}
+.comment_submit:hover{
+    background-color: #008CBA;
+    color: none;
+}
+
+.delete_submit{
+    background:none!important;
+    color:inherit;
+    border:none;
+    padding:0!important;
+    font: inherit;
+    /*border is optional*/
+    border-bottom:1px solid #444;
+    cursor: pointer;
+}
+
+.delete_submit:hover{
+    color: #f38338;
+    border-bottom:1px solid #f38338;
+}
+
+
+.comment-box{
+    border:solid 2px #dbdde6 ;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    padding: 10px 5px 5px 0;
+}
+
+#comment-section{
+    width:60%;
+}
+
+span {
+    font-size: .8em;
+}
