@@ -460,17 +460,28 @@ end
 post "/events/:id/deleteFriend" do
 	authenticate!
 
-	g = Group.all(friend_id: params["friendID"])
-	u = User.first(id: params["friendID"])
+  if params[:id]
+		u = User.first(email: params["email"])
 
-	if g
-		g.destroy
-		flash[:success] = "#{u.email} has been uninvited"
+    if u
+      g =Group.first(event_id: params[:id], friend_id: u.id)
+      if g
+        g.destroy!
+				flash[:success] = "#{u.email} has been uninvited"
+				redirect "/events/#{params[:id]}"
+      else
+				flash[:error] = "#{u.email} is not in your event"
+				redirect "/events/#{params[:id]}"
+
+      end
+    end
+  else
+		flash[:error] = "Error"
 		redirect "/events/#{params[:id]}"
-	else
-		flash[:error] = "Friend not found"
-		redirect "/events/#{params[:id]}"
-	end
+
+  end
+
+
 
 end
 

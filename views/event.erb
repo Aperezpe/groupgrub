@@ -125,8 +125,8 @@
 
     <% if current_user.id == @dinner.user_id %>
       <form action= "/events/<%=@dinner.id%>/deleteFriend" method="POST">
-       <br><label for="friendID">Remove friend:</label>
-        <input type="text" name="friendID" placeholder="ID" required>
+       <br><label for="email">Remove friend:</label>
+        <input type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="E-mail" required>
         <input type= "submit" value="Submit" class="btn btn-primary"/>
       </form>
     <%end%>
