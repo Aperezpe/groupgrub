@@ -5,7 +5,7 @@
   <%t = Tab.first(event_id: @dinner.id,user_id: current_user.id).dish_id %>
   <% d = Dish.first(id: t)%>
 
-  <br><h5><%= d.dish_name %> &nbsp;&nbsp;&nbsp;&nbsp;$<%=d.dish_price %></h5>
+  <br><h5><%= d.dish_name %> &nbsp;&nbsp;&nbsp;&nbsp;$<%='%.2f' % d.dish_price %></h5>
 
 
 

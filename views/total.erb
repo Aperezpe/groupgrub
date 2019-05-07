@@ -17,7 +17,7 @@
       <p><%=Dish.first(id: s.dish_id).dish_name %></p>
       </div>
       <div class="col-md-4">
-        <p>$<%=Dish.first(id: s.dish_id).dish_price %></p>
+        <p>$<%='%.2f' % Dish.first(id: s.dish_id).dish_price %></p>
       </div>
   <% end %><br><br>
     <div class ="container">
