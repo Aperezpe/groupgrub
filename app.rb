@@ -660,6 +660,7 @@ post "/emenu/:id/addItem" do
 
   end
 
+
 end
 
 
@@ -815,3 +816,21 @@ post "/comment/:id/destroy" do
 	end
 
 end
+
+get "/events/rest/:r_id" do 
+
+	if params[:r_id]
+	 erb :menu
+	
+		
+	
+	
+	else
+		redirect "/events"
+
+	
+		
+	end
+
+end
+
