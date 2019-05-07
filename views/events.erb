@@ -10,8 +10,8 @@
 
   <h1>Delete Dinner</h1>
   <form action="/events/delete" method="POST">
-    Event ID: <input type="text" name="id" required/><br/>
-    <br><input type="submit" class="btn btn-primary" text="delete"/>
+    Event ID: <input type="text" name="name" placeholder="Name" required/><br/>
+    <br><input type="submit" class="btn btn-primary"/>
   </form>
 
     <% if @my_dinners.count != 0 %>

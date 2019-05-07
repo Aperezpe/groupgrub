@@ -69,10 +69,10 @@
 //
 //
     Cancel Event -->
-  <% if current_user.id == @dinner.user_id %>
-  <form action="/events/delete" method="POST">
-    <input type="hidden" name="id" value ="<%=@dinner.id%>"/>
-    <br><input type="submit" value="Delete Event" class="btn btn-primary"/>
+  <% if current_user.id == @dinner.user_id%>
+  <form action="/events/<%= @dinner.id%>/delete" method="POST">
+    <input type="hidden" name=<%= @dinner.title%>/>
+    <br><input type="submit" value="Delete Event" class="btn btn-primary" formaction="/events/<%= @dinner.id%>/delete" formmethod="POST"/>
   </form>
   <br>
     <%end%>

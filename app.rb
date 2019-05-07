@@ -439,23 +439,89 @@ end
 post "/events/delete" do
 	authenticate!
 
-	e = Event.get(params["id"])
-	g = Group.all(event_id: e.id)
 
-  if e
-		e.destroy
-		g.destroy
-		flash[:success] = "Dinner has been deleted!"
-		redirect "/events"
+  if params[:name]
+    event= Event.first(user_id: current_user.id, title: params[:name])
+    if event
 
+      g = Group.all(user_id: current_user.id, event_id: event.id)
+      g.destroy! if g
+
+      p = Poll.all(user_id: current_user.id,event_id: event.id)
+      p.destroy! if p
+
+      v = Vote.all(event_id: event.id)
+      v.destroy! if v
+
+      c = Comment.all(event_id: event.id)
+      c.destroy! if c
+
+      t = Tab.all(event_id: event.id)
+      t.destroy! if t
+
+      event.destroy!
+
+			flash[:success] = "Dinner has been deleted!"
+			redirect "/events"
+
+		else
+			flash[:error] = "Dinner not found"
+			redirect "/events"
+
+		end
 	else
-		flash[:error] = "Dinner not found"
+		flash[:error] = "Not found"
+		redirect "/events"
+  end
+
+end
+
+post "/events/:id/delete" do
+
+  if params[:id]
+
+		event= Event.first(user_id: current_user.id, id: params[:id])
+
+    if event
+			if event
+
+				g = Group.all(user_id: current_user.id, event_id: event.id)
+				g.destroy! if g
+
+				p = Poll.all(user_id: current_user.id,event_id: event.id)
+				p.destroy! if p
+
+				v = Vote.all(event_id: event.id)
+				v.destroy! if v
+
+				c = Comment.all(event_id: event.id)
+				c.destroy! if c
+
+				t = Tab.all(event_id: event.id)
+				t.destroy! if t
+
+				event.destroy!
+
+				flash[:success] = "Dinner has been deleted!"
+				redirect "/events"
+
+			else
+				flash[:error] = "Dinner not found"
+				redirect "/events"
+
+			end
+    end
+
+  else
+		flash[:error] = "Not found"
 		redirect "/events"
 
-	end
+  end
 
 
 end
+
+
 
 post "/events/:id/deleteFriend" do
 	authenticate!
