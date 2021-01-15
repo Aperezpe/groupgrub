@@ -1,77 +1,60 @@
 <!-- Function to add friend-->
-<br><br>
-<div class="container">
-  <form action= "/friends/add" method= "POST">
-
-    Add new friend: <input type= "email" name= "email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="E-mail" required>
-
-    <input type= "submit" value="Submit" class="btn btn-primary"/>
-  </form>
+<div  class="container" 
+      style="padding:50px 0px 100px 0px;">
+  <div style="float:left">
+    <form action= "/friends/add" method= "POST">
+      Add new friend: <input type= "email" name= "email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="E-mail" required>
+      <input type= "submit" value="Submit" class="btn btn-primary"/>
+    </form>
+  </div>
+  <div style="float:right">
+    <form action= "/friends/remove" method= "POST">
+      Remove friend: <input type= "email" name= "email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="E-mail" required>
+      <input type= "submit" value="Submit" class="btn btn-primary"/>
+    </form>
+  </div>
 </div>
-
-
-<!-- Function to remove friend-->
-<div class="container">
-  <form action= "/friends/remove" method= "POST">
-    <br>
-    Remove friend: <input type= "email" name= "email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="E-mail" required>
-
-    <input type= "submit" value="Submit" class="btn btn-primary"/>
-  </form>
-</div>
-<br>
-<br>
-
-
-<!-- Function to display all users in the database
-     Displays user id, user's name, user's email
--->
-<div class="container">
-  <h1>All
-  <%Request_count ="" %>
-  <%=Request_count += "#{User.all.count}" %>
-  <%Request_count%> Users
-  </h1>
-
-
-  <% User.all.each do |u|%>
-    <% string =""%>
-
-    <% string += "ID: #{u.id}, Name: #{u.name}, Email: #{u.email}"%>
-    <ul><li><%=string%></li></ul>
-
-  <%end %>
-
-
-</div>
-<br><br>
-
-
-<!-- Function to display all user's friend in the database by making sure are_friends = true
-     Displays user id, Friend's name, Friend's email
--->
-<div class="container">
-  <h1><%= current_user.name %> has
+<div class="container" style="padding-bottom:50px">
+  <h2><%= current_user.name %> has
     <%Request_count ="" %>
     <%=Request_count += "#{Friends.all(user_id: current_user.id, are_friends: true).count}" %>
     <%Request_count%> friends
-  </h1>
-
-
+  </h2>
   <% Friends.all(user_id: current_user.id).each do |u|%>
     <% string =""%>
-
     <%if u.are_friends == true%>
-
       <%s = User.get(u.following_user_id)%>
       <%string +="ID: #{s.id}, Name: #{s.name}, Email: #{s.email}"%>
-      <ul><li><%=string%></li></ul>
-
+      <ul>
+        <li><%=string%></li>
+      </ul>
     <%end%>
-  <%end%><br>
-
+  <%end%>
 </div>
-
-
-
-
+<div class="container">
+  <h2> There are <%= "#{User.all.count}"%> GroupGrub Users</h2>
+  <div class="panel-body panel-height">
+    <table class="table table-striped table-responsive" style="width=100%">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% User.all.each do |user| %>
+          <tr>
+            <td><%= user.id %></td>
+            <td><%= user.name %></td>
+            <td><%= user.email %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <br/>
+  </div>
+</div>
+<!-- Function to display all user's friend in the database by making sure are_friends = true
+     Displays user id, Friend's name, Friend's email
+-->
